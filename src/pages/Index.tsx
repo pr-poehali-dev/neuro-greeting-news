@@ -14,12 +14,19 @@ const NAV_ITEMS = [
 ];
 
 const STARS = [
-  { name: "Иван Ургант", category: "Телеведущий", emoji: "🎤", price: "от 2 990 ₽", tag: "ТОП" },
-  { name: "Ольга Бузова", category: "Певица", emoji: "🌟", price: "от 3 490 ₽", tag: "ХИТ" },
-  { name: "Дмитрий Нагиев", category: "Актёр", emoji: "🎭", price: "от 2 490 ₽", tag: "" },
-  { name: "Тимати", category: "Рэпер", emoji: "🎧", price: "от 3 990 ₽", tag: "NEW" },
-  { name: "Ксения Собчак", category: "Телеведущая", emoji: "💎", price: "от 2 990 ₽", tag: "" },
-  { name: "Басков", category: "Певец", emoji: "🎼", price: "от 2 790 ₽", tag: "" },
+  { name: "Владимир Путин", category: "Политик", emoji: "🇷🇺", tag: "ТОП" },
+  { name: "Дмитрий Нагиев", category: "Актёр, телеведущий", emoji: "🎭", tag: "ХИТ" },
+  { name: "Николай Басков", category: "Певец", emoji: "🎤", tag: "" },
+  { name: "Филипп Киркоров", category: "Певец", emoji: "👑", tag: "ТОП" },
+  { name: "Стас Михайлов", category: "Певец", emoji: "🎵", tag: "" },
+  { name: "Баста", category: "Рэпер", emoji: "🎧", tag: "" },
+  { name: "Сергей Бурунов", category: "Актёр", emoji: "🎬", tag: "NEW" },
+  { name: "Сергей Жуков", category: "Певец, «Руки Вверх»", emoji: "🎸", tag: "" },
+  { name: "Олег Газманов", category: "Певец", emoji: "🌟", tag: "" },
+  { name: "Сергей Лазарев", category: "Певец", emoji: "✨", tag: "" },
+  { name: "Григорий Лепс", category: "Певец", emoji: "🥂", tag: "" },
+  { name: "Прохор Шаляпин", category: "Певец", emoji: "🎶", tag: "" },
+  { name: "Гарик Харламов", category: "Комик, актёр", emoji: "😄", tag: "ХИТ" },
 ];
 
 const GALLERY_ITEMS: { title: string; star: string; views: string; emoji: string; img?: string }[] = [
@@ -57,7 +64,7 @@ const WHY_ITEMS = [
 export default function Index() {
   const [activeSection, setActiveSection] = useState("home");
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [selectedStar, setSelectedStar] = useState<string | null>(null);
+  const [selectedStar] = useState<string | null>(null);
   const [formData, setFormData] = useState({ name: "", contact: "", star: "", recipient: "", occasion: "", message: "" });
   const [formStatus, setFormStatus] = useState<"idle" | "loading" | "ok" | "error">("idle");
 
@@ -212,131 +219,80 @@ export default function Index() {
         </div>
       </section>
 
-      {/* GALLERY */}
+      {/* NEWS FORMAT */}
       <section id="gallery" className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <span className="text-sm font-golos uppercase tracking-widest mb-4 block" style={{ color: "var(--neon-cyan)" }}>Галерея</span>
+            <span className="text-sm font-golos uppercase tracking-widest mb-4 block" style={{ color: "var(--neon-cyan)" }}>Формат новостей</span>
             <h2 className="font-oswald text-5xl lg:text-6xl font-bold text-white mb-4">
-              ПРИМЕРЫ <span className="gradient-text">ПОЗДРАВЛЕНИЙ</span>
+              ПОЗДРАВЛЕНИЯ В <span className="gradient-text">ФОРМАТЕ НОВОСТЕЙ</span>
             </h2>
             <p className="text-white/50 max-w-xl mx-auto font-golos">
-              Реальные поздравления, созданные с помощью нашего сервиса
+              Эксклюзивный формат — ваш именинник в главных новостях страны
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {GALLERY_ITEMS.map((item, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {GALLERY_ITEMS.slice(0, 3).map((item, i) => (
               <div key={i} className="glass star-card rounded-2xl overflow-hidden group cursor-pointer">
-                <div className="relative h-48 overflow-hidden" style={{ background: `linear-gradient(135deg, hsl(${i * 40 + 280}, 70%, 15%), hsl(${i * 40 + 320}, 80%, 8%))` }}>
+                <div className="relative h-56 overflow-hidden" style={{ background: `linear-gradient(135deg, hsl(${i * 40 + 200}, 70%, 10%), hsl(${i * 40 + 240}, 80%, 6%))` }}>
                   {item.img ? (
                     <img src={item.img} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   ) : (
-                    <div className="absolute inset-0 flex items-center justify-center text-6xl opacity-40 group-hover:scale-110 transition-transform duration-500">
-                      {item.emoji}
-                    </div>
+                    <div className="absolute inset-0 flex items-center justify-center text-6xl opacity-40">{item.emoji}</div>
                   )}
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-14 h-14 rounded-full glass-strong flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 scale-75 group-hover:scale-100">
                       <Icon name="Play" size={20} />
                     </div>
                   </div>
-                  <div className="absolute top-3 right-3 glass px-2 py-1 rounded-full text-xs font-golos text-white/70">
-                    👁 {item.views}
-                  </div>
                 </div>
                 <div className="p-5">
-                  <h3 className="font-oswald font-semibold text-lg text-white mb-1">{item.title}</h3>
-                  <p className="text-white/50 text-sm font-golos">⭐ {item.star}</p>
+                  <h3 className="font-oswald font-semibold text-lg text-white">{item.title}</h3>
                 </div>
               </div>
             ))}
-          </div>
-
-          <div className="relative rounded-3xl overflow-hidden">
-            <img src={GALLERY_IMG} alt="Галерея звёзд" className="w-full h-64 object-cover" />
-            <div className="absolute inset-0 flex items-center justify-center" style={{ background: "rgba(10,8,20,0.7)" }}>
-              <div className="text-center">
-                <p className="font-oswald text-3xl text-white font-bold mb-4">БОЛЕЕ 50 000 ПОЗДРАВЛЕНИЙ</p>
-                <button className="btn-neon px-8 py-3 rounded-xl">
-                  <span>Смотреть все</span>
-                </button>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* STARS CATALOG */}
+      {/* STARS */}
       <section id="stars" className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <span className="text-sm font-golos uppercase tracking-widest mb-4 block" style={{ color: "var(--neon-pink)" }}>Каталог</span>
+            <span className="text-sm font-golos uppercase tracking-widest mb-4 block" style={{ color: "var(--neon-pink)" }}>Знаменитости</span>
             <h2 className="font-oswald text-5xl lg:text-6xl font-bold text-white mb-4">
-              ВЫБЕРИ <span className="gradient-text-warm">ЗВЕЗДУ</span>
+              ПОЗДРАВЛЕНИЯ <span className="gradient-text-warm">ОТ ЗВЁЗД</span>
             </h2>
             <p className="text-white/50 max-w-xl mx-auto font-golos">
-              Более 500 знаменитостей готовы поздравить твоих близких
+              Видео-примеры поздравлений от известных людей России
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-3 justify-center mb-10">
-            {["Все", "Певцы", "Актёры", "Телеведущие", "Спортсмены", "Блогеры"].map((cat) => (
-              <button key={cat} className="glass px-5 py-2 rounded-full text-sm font-golos text-white/70 hover:text-white border border-white/10 hover:border-white/30 transition-all">
-                {cat}
-              </button>
-            ))}
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
             {STARS.map((star, i) => (
-              <div
-                key={i}
-                onClick={() => setSelectedStar(selectedStar === star.name ? null : star.name)}
-                className={`glass star-card rounded-2xl p-6 cursor-pointer relative overflow-hidden transition-all ${selectedStar === star.name ? "border border-pink-500/50" : "border border-white/08"}`}
-              >
+              <div key={i} className="glass star-card rounded-2xl overflow-hidden group cursor-pointer relative">
                 {star.tag && (
-                  <span className="absolute top-4 right-4 text-xs font-oswald font-bold px-2 py-1 rounded-md"
+                  <span className="absolute top-3 right-3 z-10 text-xs font-oswald font-bold px-2 py-1 rounded-md"
                     style={{ background: star.tag === "NEW" ? "var(--neon-cyan)" : star.tag === "ТОП" ? "var(--neon-pink)" : "var(--neon-orange)", color: star.tag === "NEW" ? "#000" : "#fff" }}>
                     {star.tag}
                   </span>
                 )}
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl"
-                    style={{ background: `linear-gradient(135deg, hsl(${i * 40 + 280}, 70%, 20%), hsl(${i * 40 + 320}, 80%, 12%))` }}>
-                    {star.emoji}
-                  </div>
-                  <div>
-                    <h3 className="font-oswald font-bold text-lg text-white">{star.name}</h3>
-                    <p className="text-white/50 text-sm font-golos">{star.category}</p>
+                <div className="relative h-36 flex items-center justify-center"
+                  style={{ background: `linear-gradient(135deg, hsl(${i * 25 + 280}, 70%, 15%), hsl(${i * 25 + 320}, 80%, 8%))` }}>
+                  <span className="text-5xl">{star.emoji}</span>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-full glass-strong flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 scale-75 group-hover:scale-100">
+                      <Icon name="Play" size={16} />
+                    </div>
                   </div>
                 </div>
-                <div className="flex items-center justify-between">
-                  <span className="font-oswald font-semibold" style={{ color: "var(--neon-cyan)" }}>{star.price}</span>
-                  <button className="btn-neon px-4 py-2 rounded-lg text-sm" onClick={(e) => { e.stopPropagation(); setSelectedStar(star.name); }}>
-                    <span>Заказать</span>
-                  </button>
+                <div className="p-4">
+                  <h3 className="font-oswald font-bold text-base text-white leading-tight">{star.name}</h3>
+                  <p className="text-white/50 text-xs font-golos mt-1">{star.category}</p>
                 </div>
-                {selectedStar === star.name && (
-                  <div className="mt-4 pt-4 border-t border-white/10" onClick={(e) => e.stopPropagation()}>
-                    <p className="text-white/60 text-sm font-golos mb-3">Введите данные для поздравления</p>
-                    <input className="w-full glass border border-white/20 rounded-lg px-4 py-2 text-sm text-white font-golos bg-transparent placeholder-white/30 mb-2 outline-none focus:border-pink-500"
-                      placeholder="Имя именинника" />
-                    <textarea className="w-full glass border border-white/20 rounded-lg px-4 py-2 text-sm text-white font-golos bg-transparent placeholder-white/30 mb-3 outline-none focus:border-pink-500 resize-none h-20"
-                      placeholder="Текст поздравления (опционально)" />
-                    <button className="btn-neon w-full py-3 rounded-lg text-sm">
-                      <span>Создать поздравление →</span>
-                    </button>
-                  </div>
-                )}
               </div>
             ))}
-          </div>
-
-          <div className="text-center mt-10">
-            <button className="btn-outline-neon px-8 py-3 rounded-xl text-base">
-              Показать ещё 494 звезды
-            </button>
           </div>
         </div>
       </section>
