@@ -9,7 +9,7 @@ const NAV_ITEMS = [
   { id: "home", label: "Главная" },
   { id: "gallery", label: "Галерея" },
   { id: "stars", label: "Звёзды" },
-  { id: "about", label: "О сервисе" },
+  { id: "how", label: "Как это работает" },
   { id: "contact", label: "Контакты" },
 ];
 
@@ -31,26 +31,26 @@ const GALLERY_ITEMS = [
   { title: "Выпускной", star: "Ксения Собчак", views: "9 тыс.", emoji: "🎓" },
 ];
 
-const TECH_ITEMS = [
+const WHY_ITEMS = [
   {
-    icon: "Brain",
-    title: "Нейросети нового поколения",
-    text: "Синтез речи и видео с точностью 99.8% на основе GPT-4 и собственных моделей",
+    icon: "Heart",
+    title: "Незабываемый момент",
+    text: "Близкий человек получит поздравление от своей любимой звезды — такого точно никто не ожидает",
   },
   {
-    icon: "Mic",
-    title: "Клонирование голоса",
-    text: "Технология Voice Clone воссоздаёт голос звезды с сохранением интонаций и тембра",
+    icon: "Clock",
+    title: "Быстро и просто",
+    text: "Оставьте заявку, укажите детали — готовое видео придёт вам в течение суток",
   },
   {
-    icon: "Video",
-    title: "Deepfake уровня студии",
-    text: "Рендер видео в 4K с синхронизацией мимики и движения губ за 5 минут",
+    icon: "Sparkles",
+    title: "Персонально для вас",
+    text: "Каждое поздравление создаётся индивидуально: имя, повод, особые пожелания",
   },
   {
-    icon: "Shield",
-    title: "Лицензированный контент",
-    text: "Все звёзды подписали официальные соглашения — никакого нарушения прав",
+    icon: "Gift",
+    title: "Идеальный подарок",
+    text: "Подойдёт на любой повод: день рождения, юбилей, свадьба, корпоратив и не только",
   },
 ];
 
@@ -136,7 +136,7 @@ export default function Index() {
             <div className="section-enter delay-100">
               <span className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-sm font-golos mb-6" style={{ color: "var(--neon-cyan)" }}>
                 <span className="w-2 h-2 rounded-full animate-pulse" style={{ background: "var(--neon-cyan)" }} />
-                Нейросети + Звёзды = Магия
+                Подарок, который точно запомнят
               </span>
               <h1 className="font-oswald font-bold leading-none">
                 <span className="block text-5xl lg:text-7xl text-white mb-2">ПОЗДРАВЛЕНИЕ</span>
@@ -146,7 +146,7 @@ export default function Index() {
             </div>
 
             <p className="section-enter delay-300 text-white/60 text-lg leading-relaxed max-w-md font-golos">
-              Выбери любимую звезду, введи имя именинника — и получи персональное видео-поздравление с помощью ИИ
+              Выбери звезду из каталога, оставь заявку — и мы пришлём готовое персональное видео в течение суток
             </p>
 
             <div className="section-enter delay-400 flex flex-col sm:flex-row gap-4">
@@ -319,25 +319,28 @@ export default function Index() {
         </div>
       </section>
 
-      {/* ABOUT */}
-      <section id="about" className="py-24 px-6">
+      {/* HOW IT WORKS */}
+      <section id="how" className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <span className="text-sm font-golos uppercase tracking-widest mb-4 block" style={{ color: "var(--neon-purple)" }}>О сервисе</span>
+            <span className="text-sm font-golos uppercase tracking-widest mb-4 block" style={{ color: "var(--neon-purple)" }}>Просто и понятно</span>
             <h2 className="font-oswald text-5xl lg:text-6xl font-bold text-white mb-4">
               КАК ЭТО <span className="gradient-text">РАБОТАЕТ</span>
             </h2>
+            <p className="text-white/50 max-w-xl mx-auto font-golos">
+              Три простых шага — и поздравление от звезды уже у вас
+            </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
             <div>
-              <img src={AI_IMG} alt="AI технологии" className="w-full rounded-3xl object-cover h-80" />
+              <img src={AI_IMG} alt="Поздравление от звезды" className="w-full rounded-3xl object-cover h-80" />
             </div>
             <div className="space-y-6">
               {[
-                { step: "01", title: "Выбираешь звезду", text: "В каталоге более 500 знаменитостей: певцы, актёры, телеведущие и блогеры" },
-                { step: "02", title: "Вводишь данные", text: "Имя получателя, повод и текст поздравления — ИИ сделает остальное" },
-                { step: "03", title: "Получаешь видео", text: "Через 5 минут готовое HD-видео с голосом и лицом выбранной звезды" },
+                { step: "01", title: "Выбираешь звезду", text: "В каталоге — певцы, актёры, телеведущие и другие знаменитости на любой вкус" },
+                { step: "02", title: "Оставляешь заявку", text: "Укажи имя получателя, повод и любые детали — чем больше, тем трогательнее получится" },
+                { step: "03", title: "Получаешь готовое видео", text: "Мы всё сделаем сами и пришлём вам готовое поздравление в течение суток" },
               ].map((item) => (
                 <div key={item.step} className="flex gap-5">
                   <div className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center font-oswald font-bold text-sm"
@@ -354,7 +357,7 @@ export default function Index() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {TECH_ITEMS.map((item, i) => (
+            {WHY_ITEMS.map((item, i) => (
               <div key={i} className="glass rounded-2xl p-6 border border-white/08 hover:border-white/20 transition-all duration-300">
                 <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
                   style={{ background: `linear-gradient(135deg, hsl(${i * 30 + 300}, 80%, 30%), hsl(${i * 30 + 330}, 90%, 20%))` }}>
