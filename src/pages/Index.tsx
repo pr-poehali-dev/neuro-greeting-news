@@ -189,7 +189,7 @@ export default function Index() {
             </div>
 
             <div className="section-enter delay-500 flex items-center gap-8 pt-4">
-              {[["500+", "Звёзд"], ["50K+", "Поздравлений"], ["4.9", "Рейтинг"]].map(([val, label]) => (
+              {[["100+", "Звёзд"], ["1000+", "Поздравлений"], ["5.0", "Рейтинг"]].map(([val, label]) => (
                 <div key={label}>
                   <div className="font-oswald text-2xl font-bold gradient-text">{val}</div>
                   <div className="text-white/50 text-sm font-golos">{label}</div>
