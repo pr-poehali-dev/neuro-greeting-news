@@ -479,7 +479,7 @@ export default function Index() {
 
           <div className="text-center mt-10">
             <a
-              href="https://www.avito.ru"
+              href="https://www.avito.ru/brands/3aff4584f599bf9abe69698bbf483b84"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 font-golos text-white/70 hover:text-white transition-colors duration-200 underline underline-offset-4 decoration-white/30 hover:decoration-white/70"
