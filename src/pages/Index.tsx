@@ -96,11 +96,8 @@ export default function Index() {
           </div>
 
           <div className="flex items-center gap-3">
-            <button className="hidden md:block btn-outline-neon px-4 py-2 rounded-lg text-sm">
-              Войти
-            </button>
-            <button className="btn-neon px-5 py-2 rounded-lg text-sm">
-              <span>Начать</span>
+            <button onClick={() => scrollTo("stars")} className="btn-neon px-5 py-2 rounded-lg text-sm">
+              <span>Заказать</span>
             </button>
             <button className="md:hidden text-white/70" onClick={() => setMobileOpen(!mobileOpen)}>
               <Icon name={mobileOpen ? "X" : "Menu"} size={22} />
