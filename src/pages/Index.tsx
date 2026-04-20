@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Icon from "@/components/ui/icon";
+import ReviewsCarousel from "@/components/ReviewsCarousel";
 
 const HERO_IMG = "https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/files/901f5ba0-0952-42d0-825b-fe2f833573a5.jpg";
 const AI_IMG = "https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/files/3d327c1e-35a8-4b89-a0a5-d4aaa625236e.jpg";
@@ -455,6 +456,25 @@ export default function Index() {
               </a>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* REVIEWS */}
+      <section id="reviews" className="py-24 px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="text-sm font-golos uppercase tracking-widest mb-4 block" style={{ color: "var(--neon-cyan)" }}>Отзывы клиентов</span>
+            <div className="flex justify-center gap-1 mb-4">
+              {[...Array(5)].map((_, i) => (
+                <span key={i} className="text-3xl" style={{ color: "#f5a623" }}>★</span>
+              ))}
+            </div>
+            <p className="text-white/50 max-w-xl mx-auto font-golos">
+              Узнайте, что говорят те, кто уже получил поздравление
+            </p>
+          </div>
+
+          <ReviewsCarousel />
         </div>
       </section>
 
