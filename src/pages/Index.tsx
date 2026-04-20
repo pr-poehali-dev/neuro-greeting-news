@@ -97,7 +97,7 @@ export default function Index() {
             <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "linear-gradient(135deg, var(--neon-pink), var(--neon-purple))" }}>
               <span className="text-sm">⭐</span>
             </div>
-            <span className="font-oswald text-xl font-bold tracking-wide text-white">Star<span className="neon-text-pink">Greet</span></span>
+            <span className="font-oswald text-lg font-bold tracking-wide text-white">Анастасия Б <span className="neon-text-pink">| Поздравления</span></span>
           </div>
 
           <div className="hidden md:flex items-center gap-1">
@@ -517,7 +517,7 @@ export default function Index() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-2">
             <div className="w-7 h-7 rounded-lg flex items-center justify-center text-sm" style={{ background: "linear-gradient(135deg, var(--neon-pink), var(--neon-purple))" }}>⭐</div>
-            <span className="font-oswald text-lg font-bold text-white">Star<span className="neon-text-pink">Greet</span></span>
+            <span className="font-oswald text-lg font-bold text-white">Анастасия Б <span className="neon-text-pink">| Поздравления</span></span>
           </div>
           <div className="flex flex-wrap gap-6 justify-center">
             {NAV_ITEMS.map((item) => (
