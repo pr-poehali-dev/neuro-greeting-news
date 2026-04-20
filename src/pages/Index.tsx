@@ -67,6 +67,7 @@ export default function Index() {
   const [selectedStar] = useState<string | null>(null);
   const [formData, setFormData] = useState({ name: "", contact: "", star: "", recipient: "", occasion: "", message: "" });
   const [formStatus, setFormStatus] = useState<"idle" | "loading" | "ok" | "error">("idle");
+  const [detailsOpen, setDetailsOpen] = useState(false);
 
   const submitForm = async () => {
     if (!formData.name.trim() || !formData.contact.trim()) return;
@@ -322,27 +323,89 @@ export default function Index() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
-            <div>
-              <img src={AI_IMG} alt="Поздравление от звезды" className="w-full rounded-3xl object-cover h-80" />
-            </div>
-            <div className="space-y-6">
-              {[
-                { step: "01", title: "Выбираешь звезду", text: "В каталоге — певцы, актёры, телеведущие и другие знаменитости на любой вкус" },
-                { step: "02", title: "Оставляешь заявку", text: "Укажи имя получателя, повод и любые детали — чем больше, тем трогательнее получится" },
-                { step: "03", title: "Получаешь готовое видео", text: "Мы всё сделаем сами и пришлём вам готовое поздравление в течение суток" },
-              ].map((item) => (
-                <div key={item.step} className="flex gap-5">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center font-oswald font-bold text-sm"
-                    style={{ background: "linear-gradient(135deg, var(--neon-pink), var(--neon-purple))", color: "white" }}>
-                    {item.step}
+          <div className="max-w-3xl mx-auto space-y-6 mb-20">
+            {/* Шаг 1 */}
+            <div className="glass rounded-2xl p-7 border border-white/08">
+              <div className="flex gap-5">
+                <div className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center font-oswald font-bold text-sm"
+                  style={{ background: "linear-gradient(135deg, var(--neon-pink), var(--neon-purple))", color: "white" }}>
+                  01
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-oswald font-semibold text-xl text-white mb-3">Вы отправляете информацию</h3>
+                  <p className="text-white/70 font-golos font-medium mb-3">Для заказа пришлите нам:</p>
+                  <div className="mb-3">
+                    <p className="text-white/60 font-golos text-sm font-semibold mb-1">1. Данные об имениннике:</p>
+                    <ul className="space-y-1 text-white/50 font-golos text-sm ml-3">
+                      <li className="flex items-start gap-2"><span style={{ color: "var(--neon-cyan)" }}>—</span> Полное имя (Ф.И.О.)</li>
+                      <li className="flex items-start gap-2"><span style={{ color: "var(--neon-cyan)" }}>—</span> Дата рождения</li>
+                      <li className="flex items-start gap-2"><span style={{ color: "var(--neon-cyan)" }}>—</span> Фотографии (от 1 до 7 фото)</li>
+                    </ul>
                   </div>
                   <div>
-                    <h3 className="font-oswald font-semibold text-xl text-white mb-1">{item.title}</h3>
-                    <p className="text-white/55 font-golos">{item.text}</p>
+                    <div className="flex items-center justify-between">
+                      <p className="text-white/60 font-golos text-sm font-semibold">2. Интересные факты и детали</p>
+                      <button
+                        onClick={() => setDetailsOpen(!detailsOpen)}
+                        className="flex items-center gap-1 text-xs font-golos px-3 py-1 rounded-full border transition-all"
+                        style={{ color: "var(--neon-cyan)", borderColor: "var(--neon-cyan)44", background: "var(--neon-cyan)11" }}
+                      >
+                        {detailsOpen ? "Свернуть" : "Подробнее"}
+                        <Icon name={detailsOpen ? "ChevronUp" : "ChevronDown"} size={12} />
+                      </button>
+                    </div>
+                    {detailsOpen && (
+                      <div className="mt-3 ml-3 space-y-1 text-white/50 font-golos text-sm">
+                        <p className="text-white/60 mb-2">Расскажите об имениннике всё, что считаете важным:</p>
+                        <li className="flex items-start gap-2 list-none"><span style={{ color: "var(--neon-cyan)" }}>—</span> Личные достижения (карьера, хобби, спорт и т.д.)</li>
+                        <li className="flex items-start gap-2 list-none"><span style={{ color: "var(--neon-cyan)" }}>—</span> Увлечения и интересы</li>
+                        <li className="flex items-start gap-2 list-none"><span style={{ color: "var(--neon-cyan)" }}>—</span> Как вас представить (знаменитость скажет, что поздравляет по вашей просьбе)</li>
+                      </div>
+                    )}
                   </div>
                 </div>
-              ))}
+              </div>
+            </div>
+
+            {/* Шаг 2 */}
+            <div className="glass rounded-2xl p-7 border border-white/08">
+              <div className="flex gap-5">
+                <div className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center font-oswald font-bold text-sm"
+                  style={{ background: "linear-gradient(135deg, var(--neon-purple), var(--neon-cyan))", color: "white" }}>
+                  02
+                </div>
+                <div>
+                  <h3 className="font-oswald font-semibold text-xl text-white mb-2">Мы создаём поздравление</h3>
+                  <p className="text-white/55 font-golos">Мы пишем уникальный и персонализированный сценарий, основанный на ваших пожеланиях и фактах об имениннике. Создаём высококачественное видеопоздравление.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Шаг 3 */}
+            <div className="glass rounded-2xl p-7 border border-white/08">
+              <div className="flex gap-5">
+                <div className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center font-oswald font-bold text-sm"
+                  style={{ background: "linear-gradient(135deg, var(--neon-cyan), var(--neon-pink))", color: "white" }}>
+                  03
+                </div>
+                <div>
+                  <h3 className="font-oswald font-semibold text-xl text-white mb-2">Вы получаете видео</h3>
+                  <p className="text-white/55 font-golos">Готовое высококачественное поздравление доставляется вам в течение <span className="text-white/80 font-semibold">24 часов</span> (срочный заказ выполняем до <span className="text-white/80 font-semibold">2 часов</span>).</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Гарантия */}
+            <div className="rounded-2xl p-6 border flex items-center gap-4"
+              style={{ background: "linear-gradient(135deg, rgba(255,45,120,0.08), rgba(155,48,255,0.08))", borderColor: "rgba(255,45,120,0.3)" }}>
+              <div className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center text-2xl"
+                style={{ background: "linear-gradient(135deg, var(--neon-pink), var(--neon-purple))" }}>
+                🛡️
+              </div>
+              <div>
+                <p className="font-oswald font-bold text-white text-lg">Гарантия</p>
+                <p className="text-white/65 font-golos text-sm">Оплата только после просмотра! Мы уверены, что вы будете в восторге от результата!</p>
+              </div>
             </div>
           </div>
 
