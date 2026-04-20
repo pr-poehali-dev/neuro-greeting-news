@@ -29,13 +29,13 @@ const STARS = [
   { name: "Гарик Харламов", category: "Комик, актёр", emoji: "😄", tag: "ХИТ" },
 ];
 
-const GALLERY_ITEMS: { title: string; star: string; views: string; emoji: string; img?: string }[] = [
-  { title: "Поздравление от Первого канала", star: "Первый канал", views: "12 тыс.", emoji: "🎂", img: "https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/bucket/66f51039-aad8-4b03-b1c3-70656714a621.jpeg" },
-  { title: "Поздравление от канала «Россия 1»", star: "Россия 1", views: "8 тыс.", emoji: "🎉", img: "https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/bucket/e3bb268d-9413-44fe-b461-10a225d60349.jpeg" },
-  { title: "Ведущая + Путин", star: "Персональное поздравление", views: "21 тыс.", emoji: "💍", img: "https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/bucket/f365e94a-27ad-42ac-9fb3-edc956a80639.jpeg" },
-  { title: "Юбилей 50 лет", star: "Нагиев", views: "6 тыс.", emoji: "🥂" },
-  { title: "Новый год!", star: "Тимати", views: "45 тыс.", emoji: "🎆" },
-  { title: "Выпускной", star: "Ксения Собчак", views: "9 тыс.", emoji: "🎓" },
+const GALLERY_ITEMS: { title: string; star: string; views: string; emoji: string; img?: string; price: string }[] = [
+  { title: "Поздравление от Первого канала", star: "Первый канал", views: "12 тыс.", emoji: "🎂", img: "https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/bucket/66f51039-aad8-4b03-b1c3-70656714a621.jpeg", price: "3 000 ₽" },
+  { title: "Поздравление от канала «Россия 1»", star: "Россия 1", views: "8 тыс.", emoji: "🎉", img: "https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/bucket/e3bb268d-9413-44fe-b461-10a225d60349.jpeg", price: "3 000 ₽" },
+  { title: "Ведущая + Путин", star: "Персональное поздравление", views: "21 тыс.", emoji: "💍", img: "https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/bucket/f365e94a-27ad-42ac-9fb3-edc956a80639.jpeg", price: "2 000 ₽" },
+  { title: "Юбилей 50 лет", star: "Нагиев", views: "6 тыс.", emoji: "🥂", price: "1 500 ₽" },
+  { title: "Новый год!", star: "Тимати", views: "45 тыс.", emoji: "🎆", price: "1 500 ₽" },
+  { title: "Выпускной", star: "Ксения Собчак", views: "9 тыс.", emoji: "🎓", price: "1 500 ₽" },
 ];
 
 const WHY_ITEMS = [
@@ -247,8 +247,9 @@ export default function Index() {
                     </div>
                   </div>
                 </div>
-                <div className="p-5">
+                <div className="p-5 flex items-center justify-between">
                   <h3 className="font-oswald font-semibold text-lg text-white">{item.title}</h3>
+                  <span className="font-oswald font-bold text-lg ml-3 shrink-0" style={{ color: "var(--neon-cyan)" }}>{item.price}</span>
                 </div>
               </div>
             ))}
@@ -290,6 +291,7 @@ export default function Index() {
                 <div className="p-4">
                   <h3 className="font-oswald font-bold text-base text-white leading-tight">{star.name}</h3>
                   <p className="text-white/50 text-xs font-golos mt-1">{star.category}</p>
+                  <p className="font-oswald font-bold text-sm mt-2" style={{ color: "var(--neon-cyan)" }}>1 500 ₽</p>
                 </div>
               </div>
             ))}
