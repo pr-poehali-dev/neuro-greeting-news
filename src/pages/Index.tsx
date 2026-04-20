@@ -157,14 +157,14 @@ export default function Index() {
                 Подарок, который точно запомнят
               </span>
               <h1 className="font-oswald font-bold leading-none">
-                <span className="block text-5xl lg:text-7xl text-white mb-2">ПОЗДРАВЛЕНИЕ</span>
-                <span className="block text-5xl lg:text-7xl gradient-text">ОТ ЗВЕЗДЫ</span>
-                <span className="block text-4xl lg:text-6xl text-white/80 mt-2">за 5 минут</span>
+                <span className="block text-4xl lg:text-6xl text-white mb-2">НЕЙРО ВИДЕО-ПОЗДРАВЛЕНИЯ</span>
+                <span className="block text-4xl lg:text-6xl gradient-text">ОТ ЗНАМЕНИТОСТЕЙ</span>
+                <span className="block text-3xl lg:text-4xl text-white/80 mt-2">и в формате новостей — на заказ</span>
               </h1>
             </div>
 
             <p className="section-enter delay-300 text-white/60 text-lg leading-relaxed max-w-md font-golos">
-              Выбери звезду из каталога, оставь заявку — и мы пришлём готовое персональное видео в течение суток
+              Создадим эксклюзивное видео для любого праздника!
             </p>
 
             <div className="section-enter delay-400 flex flex-col sm:flex-row gap-4">
