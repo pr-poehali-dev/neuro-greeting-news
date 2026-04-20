@@ -22,10 +22,10 @@ const STARS = [
   { name: "Басков", category: "Певец", emoji: "🎼", price: "от 2 790 ₽", tag: "" },
 ];
 
-const GALLERY_ITEMS = [
-  { title: "День рождения маме", star: "Ольга Бузова", views: "12 тыс.", emoji: "🎂" },
-  { title: "Корпоратив 2024", star: "Иван Ургант", views: "8 тыс.", emoji: "🎉" },
-  { title: "Свадебное поздравление", star: "Басков", views: "21 тыс.", emoji: "💍" },
+const GALLERY_ITEMS: { title: string; star: string; views: string; emoji: string; img?: string }[] = [
+  { title: "Поздравление от Первого канала", star: "Первый канал", views: "12 тыс.", emoji: "🎂", img: "https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/bucket/66f51039-aad8-4b03-b1c3-70656714a621.jpeg" },
+  { title: "Поздравление от канала «Россия 1»", star: "Россия 1", views: "8 тыс.", emoji: "🎉", img: "https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/bucket/e3bb268d-9413-44fe-b461-10a225d60349.jpeg" },
+  { title: "Ведущая + Путин", star: "Персональное поздравление", views: "21 тыс.", emoji: "💍", img: "https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/bucket/f365e94a-27ad-42ac-9fb3-edc956a80639.jpeg" },
   { title: "Юбилей 50 лет", star: "Нагиев", views: "6 тыс.", emoji: "🥂" },
   { title: "Новый год!", star: "Тимати", views: "45 тыс.", emoji: "🎆" },
   { title: "Выпускной", star: "Ксения Собчак", views: "9 тыс.", emoji: "🎓" },
@@ -229,9 +229,13 @@ export default function Index() {
             {GALLERY_ITEMS.map((item, i) => (
               <div key={i} className="glass star-card rounded-2xl overflow-hidden group cursor-pointer">
                 <div className="relative h-48 overflow-hidden" style={{ background: `linear-gradient(135deg, hsl(${i * 40 + 280}, 70%, 15%), hsl(${i * 40 + 320}, 80%, 8%))` }}>
-                  <div className="absolute inset-0 flex items-center justify-center text-6xl opacity-40 group-hover:scale-110 transition-transform duration-500">
-                    {item.emoji}
-                  </div>
+                  {item.img ? (
+                    <img src={item.img} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center text-6xl opacity-40 group-hover:scale-110 transition-transform duration-500">
+                      {item.emoji}
+                    </div>
+                  )}
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-14 h-14 rounded-full glass-strong flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 scale-75 group-hover:scale-100">
                       <Icon name="Play" size={20} />
