@@ -371,51 +371,6 @@ export default function Index() {
         </div>
       </section>
 
-      {/* PROFILE */}
-      <section id="profile" className="py-16 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="glass-strong rounded-3xl p-8 md:p-12" style={{ border: "1px solid rgba(155,48,255,0.2)" }}>
-            <div className="grid lg:grid-cols-2 gap-10 items-center">
-              <div>
-                <span className="text-sm font-golos uppercase tracking-widest mb-4 block" style={{ color: "var(--neon-purple)" }}>Личный кабинет</span>
-                <h2 className="font-oswald text-4xl lg:text-5xl font-bold text-white mb-4">
-                  ВСЯ ИСТОРИЯ <br /><span className="gradient-text">ВАШИХ ЗАКАЗОВ</span>
-                </h2>
-                <p className="text-white/55 font-golos mb-6">
-                  Сохраняйте и переотправляйте поздравления, отслеживайте статус заказов и управляйте подпиской
-                </p>
-                <div className="flex gap-4 flex-wrap">
-                  <button className="btn-neon px-6 py-3 rounded-xl">
-                    <span>Войти в кабинет</span>
-                  </button>
-                  <button className="btn-outline-neon px-6 py-3 rounded-xl">
-                    Регистрация
-                  </button>
-                </div>
-              </div>
-              <div className="space-y-4">
-                {[
-                  { emoji: "🎂", title: "Маме на день рождения", star: "Ольга Бузова", date: "15 апр 2026", status: "Готово" },
-                  { emoji: "🎉", title: "Корпоратив компании", star: "Иван Ургант", date: "10 апр 2026", status: "Готово" },
-                  { emoji: "🎓", title: "Выпускнику Пете", star: "Тимати", date: "20 апр 2026", status: "В работе" },
-                ].map((order, i) => (
-                  <div key={i} className="glass rounded-xl p-4 flex items-center gap-4">
-                    <div className="text-2xl">{order.emoji}</div>
-                    <div className="flex-1 min-w-0">
-                      <div className="font-oswald font-semibold text-white truncate">{order.title}</div>
-                      <div className="text-white/50 text-sm font-golos">{order.star} • {order.date}</div>
-                    </div>
-                    <span className={`text-xs font-golos px-3 py-1 rounded-full flex-shrink-0 ${order.status === "Готово" ? "bg-green-500/20 text-green-400" : "bg-yellow-500/20 text-yellow-400"}`}>
-                      {order.status}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* CONTACT */}
       <section id="contact" className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
