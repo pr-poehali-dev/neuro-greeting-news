@@ -11,6 +11,7 @@ const NAV_ITEMS = [
   { id: "gallery", label: "Галерея" },
   { id: "stars", label: "Звёзды" },
   { id: "how", label: "Как это работает" },
+  { id: "reviews", label: "Отзывы" },
   { id: "contact", label: "Контакты" },
 ];
 
