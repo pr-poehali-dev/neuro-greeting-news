@@ -247,9 +247,14 @@ export default function Index() {
                     </div>
                   </div>
                 </div>
-                <div className="p-5 flex items-center justify-between">
-                  <h3 className="font-oswald font-semibold text-lg text-white">{item.title}</h3>
-                  <span className="font-oswald font-bold text-lg ml-3 shrink-0" style={{ color: "var(--neon-cyan)" }}>{item.price}</span>
+                <div className="p-5">
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="font-oswald font-semibold text-lg text-white">{item.title}</h3>
+                    <span className="font-oswald font-bold text-lg ml-3 shrink-0" style={{ color: "var(--neon-cyan)" }}>{item.price}</span>
+                  </div>
+                  <button onClick={() => scrollTo("contact")} className="btn-neon w-full py-2 rounded-lg text-sm">
+                    <span>Заказать</span>
+                  </button>
                 </div>
               </div>
             ))}
@@ -291,7 +296,12 @@ export default function Index() {
                 <div className="p-4">
                   <h3 className="font-oswald font-bold text-base text-white leading-tight">{star.name}</h3>
                   <p className="text-white/50 text-xs font-golos mt-1">{star.category}</p>
-                  <p className="font-oswald font-bold text-sm mt-2" style={{ color: "var(--neon-cyan)" }}>1 500 ₽</p>
+                  <div className="flex items-center justify-between mt-3">
+                    <span className="font-oswald font-bold text-sm" style={{ color: "var(--neon-cyan)" }}>1 500 ₽</span>
+                    <button onClick={() => scrollTo("contact")} className="btn-neon px-3 py-1.5 rounded-lg text-xs">
+                      <span>Заказать</span>
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
@@ -365,15 +375,15 @@ export default function Index() {
           <div className="grid lg:grid-cols-2 gap-12">
             <div className="space-y-4">
               {[
-                { emoji: "✈️", label: "Telegram", value: "@anastasia64647", href: "https://t.me/anastasia64647" },
-                { emoji: "💬", label: "WhatsApp", value: "+7 (900) 122-46-90", href: "https://wa.me/79001224690" },
-                { emoji: "🛍️", label: "Авито", value: "Профиль на Авито", href: "https://www.avito.ru/brands/3aff4584f599bf9abe69698bbf483b84" },
+                { icon: "Send", label: "Telegram", value: "@anastasia64647", href: "https://t.me/anastasia64647", color: "#229ED9" },
+                { icon: "MessageCircle", label: "WhatsApp", value: "+7 (900) 122-46-90", href: "https://wa.me/79001224690", color: "#25D366" },
+                { icon: "ShoppingBag", label: "Авито", value: "Профиль на Авито", href: "https://www.avito.ru/brands/3aff4584f599bf9abe69698bbf483b84", color: "#00AAFF" },
               ].map((item) => (
                 <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer"
                   className="glass rounded-xl p-5 flex items-center gap-4 border border-white/08 hover:border-white/20 transition-all cursor-pointer group no-underline block">
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 text-2xl"
-                    style={{ background: "linear-gradient(135deg, var(--neon-orange), var(--neon-pink))" }}>
-                    {item.emoji}
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
+                    style={{ background: item.color + "22", border: `1px solid ${item.color}44` }}>
+                    <Icon name={item.icon} fallback="Link" size={22} style={{ color: item.color }} />
                   </div>
                   <div>
                     <div className="text-white/40 text-xs font-golos uppercase tracking-wider">{item.label}</div>
