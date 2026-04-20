@@ -472,7 +472,7 @@ export default function Index() {
               </button>
             ))}
           </div>
-          <div className="text-white/30 text-sm font-golos">© 2026 StarGreet</div>
+          <div className="text-white/30 text-sm font-golos">© 2026 Анастасия Б | Поздравления</div>
         </div>
       </footer>
     </div>
