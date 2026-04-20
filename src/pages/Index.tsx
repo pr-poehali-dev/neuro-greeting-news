@@ -58,7 +58,28 @@ export default function Index() {
   const [activeSection, setActiveSection] = useState("home");
   const [mobileOpen, setMobileOpen] = useState(false);
   const [selectedStar, setSelectedStar] = useState<string | null>(null);
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [formData, setFormData] = useState({ name: "", contact: "", star: "", recipient: "", occasion: "", message: "" });
+  const [formStatus, setFormStatus] = useState<"idle" | "loading" | "ok" | "error">("idle");
+
+  const submitForm = async () => {
+    if (!formData.name.trim() || !formData.contact.trim()) return;
+    setFormStatus("loading");
+    try {
+      const res = await fetch("https://functions.poehali.dev/70ea0556-3d49-4bee-bfa5-486cc16cbf40", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (res.ok) {
+        setFormStatus("ok");
+        setFormData({ name: "", contact: "", star: "", recipient: "", occasion: "", message: "" });
+      } else {
+        setFormStatus("error");
+      }
+    } catch {
+      setFormStatus("error");
+    }
+  };
 
   const scrollTo = (id: string) => {
     setActiveSection(id);
@@ -380,62 +401,112 @@ export default function Index() {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12">
-            <div className="space-y-6">
+            <div className="space-y-4">
               {[
-                { icon: "Mail", label: "Email", value: "hello@stargreet.ru" },
-                { icon: "Phone", label: "Телефон", value: "+7 (800) 123-45-67" },
-                { icon: "MessageCircle", label: "Telegram", value: "@stargreet" },
-                { icon: "MapPin", label: "Адрес", value: "Москва, ул. Арбат, 1" },
+                { emoji: "✈️", label: "Telegram", value: "@stargreet", href: "https://t.me/stargreet" },
+                { emoji: "🛍️", label: "Авито", value: "avito.ru/stargreet", href: "https://avito.ru" },
+                { emoji: "💬", label: "WhatsApp", value: "+7 (900) 000-00-00", href: "https://wa.me/79000000000" },
+                { emoji: "💙", label: "ВКонтакте", value: "vk.com/stargreet", href: "https://vk.com" },
               ].map((item) => (
-                <div key={item.label} className="glass rounded-xl p-5 flex items-center gap-4 border border-white/08 hover:border-white/20 transition-all cursor-pointer group">
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
+                <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer"
+                  className="glass rounded-xl p-5 flex items-center gap-4 border border-white/08 hover:border-white/20 transition-all cursor-pointer group no-underline block">
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 text-2xl"
                     style={{ background: "linear-gradient(135deg, var(--neon-orange), var(--neon-pink))" }}>
-                    <Icon name={item.icon} fallback="Star" size={20} />
+                    {item.emoji}
                   </div>
                   <div>
                     <div className="text-white/40 text-xs font-golos uppercase tracking-wider">{item.label}</div>
                     <div className="text-white font-golos font-medium group-hover:text-pink-400 transition-colors">{item.value}</div>
                   </div>
-                </div>
+                  <Icon name="ExternalLink" size={16} className="ml-auto text-white/20 group-hover:text-white/50 transition-colors" />
+                </a>
               ))}
             </div>
 
             <div className="glass-strong rounded-2xl p-8 border border-white/10">
-              <h3 className="font-oswald text-2xl font-bold text-white mb-6">Форма обратной связи</h3>
-              <div className="space-y-4">
-                <div>
-                  <label className="text-white/60 text-sm font-golos block mb-2">Ваше имя</label>
-                  <input
-                    className="w-full glass border border-white/15 rounded-xl px-4 py-3 text-white font-golos bg-transparent placeholder-white/25 outline-none focus:border-pink-500 transition-colors"
-                    placeholder="Иван Иванов"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  />
+              <h3 className="font-oswald text-2xl font-bold text-white mb-6">Оставить заявку</h3>
+              {formStatus === "ok" ? (
+                <div className="flex flex-col items-center justify-center h-48 gap-4 text-center">
+                  <div className="text-5xl">🎉</div>
+                  <p className="font-oswald text-xl text-white">Заявка отправлена!</p>
+                  <p className="text-white/50 font-golos text-sm">Мы свяжемся с вами в ближайшее время</p>
+                  <button onClick={() => setFormStatus("idle")} className="btn-outline-neon px-5 py-2 rounded-lg text-sm mt-2">
+                    Отправить ещё
+                  </button>
                 </div>
-                <div>
-                  <label className="text-white/60 text-sm font-golos block mb-2">Email</label>
-                  <input
-                    type="email"
-                    className="w-full glass border border-white/15 rounded-xl px-4 py-3 text-white font-golos bg-transparent placeholder-white/25 outline-none focus:border-pink-500 transition-colors"
-                    placeholder="ivan@mail.ru"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  />
+              ) : (
+                <div className="space-y-4">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="text-white/60 text-sm font-golos block mb-2">Ваше имя *</label>
+                      <input
+                        className="w-full glass border border-white/15 rounded-xl px-4 py-3 text-white font-golos bg-transparent placeholder-white/25 outline-none focus:border-pink-500 transition-colors"
+                        placeholder="Иван"
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      />
+                    </div>
+                    <div>
+                      <label className="text-white/60 text-sm font-golos block mb-2">Контакт *</label>
+                      <input
+                        className="w-full glass border border-white/15 rounded-xl px-4 py-3 text-white font-golos bg-transparent placeholder-white/25 outline-none focus:border-pink-500 transition-colors"
+                        placeholder="@telegram или телефон"
+                        value={formData.contact}
+                        onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
+                      />
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="text-white/60 text-sm font-golos block mb-2">Звезда</label>
+                      <input
+                        className="w-full glass border border-white/15 rounded-xl px-4 py-3 text-white font-golos bg-transparent placeholder-white/25 outline-none focus:border-pink-500 transition-colors"
+                        placeholder="Кого выбрали"
+                        value={formData.star}
+                        onChange={(e) => setFormData({ ...formData, star: e.target.value })}
+                      />
+                    </div>
+                    <div>
+                      <label className="text-white/60 text-sm font-golos block mb-2">Получатель</label>
+                      <input
+                        className="w-full glass border border-white/15 rounded-xl px-4 py-3 text-white font-golos bg-transparent placeholder-white/25 outline-none focus:border-pink-500 transition-colors"
+                        placeholder="Имя именинника"
+                        value={formData.recipient}
+                        onChange={(e) => setFormData({ ...formData, recipient: e.target.value })}
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label className="text-white/60 text-sm font-golos block mb-2">Повод</label>
+                    <input
+                      className="w-full glass border border-white/15 rounded-xl px-4 py-3 text-white font-golos bg-transparent placeholder-white/25 outline-none focus:border-pink-500 transition-colors"
+                      placeholder="День рождения, юбилей, свадьба..."
+                      value={formData.occasion}
+                      onChange={(e) => setFormData({ ...formData, occasion: e.target.value })}
+                    />
+                  </div>
+                  <div>
+                    <label className="text-white/60 text-sm font-golos block mb-2">Пожелания</label>
+                    <textarea
+                      className="w-full glass border border-white/15 rounded-xl px-4 py-3 text-white font-golos bg-transparent placeholder-white/25 outline-none focus:border-pink-500 transition-colors resize-none h-24"
+                      placeholder="Особые детали, которые стоит упомянуть..."
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    />
+                  </div>
+                  {formStatus === "error" && (
+                    <p className="text-red-400 text-sm font-golos">Ошибка отправки. Попробуйте ещё раз или напишите напрямую.</p>
+                  )}
+                  <button
+                    onClick={submitForm}
+                    disabled={formStatus === "loading" || !formData.name.trim() || !formData.contact.trim()}
+                    className="btn-neon w-full py-4 rounded-xl text-base flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    <span>{formStatus === "loading" ? "Отправляем..." : "Отправить заявку"}</span>
+                    {formStatus !== "loading" && <Icon name="Send" size={18} />}
+                  </button>
                 </div>
-                <div>
-                  <label className="text-white/60 text-sm font-golos block mb-2">Сообщение</label>
-                  <textarea
-                    className="w-full glass border border-white/15 rounded-xl px-4 py-3 text-white font-golos bg-transparent placeholder-white/25 outline-none focus:border-pink-500 transition-colors resize-none h-32"
-                    placeholder="Ваш вопрос или предложение..."
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  />
-                </div>
-                <button className="btn-neon w-full py-4 rounded-xl text-base flex items-center justify-center gap-2">
-                  <span>Отправить сообщение</span>
-                  <Icon name="Send" size={18} />
-                </button>
-              </div>
+              )}
             </div>
           </div>
         </div>
