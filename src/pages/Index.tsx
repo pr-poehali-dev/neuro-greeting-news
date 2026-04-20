@@ -403,10 +403,9 @@ export default function Index() {
           <div className="grid lg:grid-cols-2 gap-12">
             <div className="space-y-4">
               {[
-                { emoji: "✈️", label: "Telegram", value: "@stargreet", href: "https://t.me/stargreet" },
-                { emoji: "🛍️", label: "Авито", value: "avito.ru/stargreet", href: "https://avito.ru" },
-                { emoji: "💬", label: "WhatsApp", value: "+7 (900) 000-00-00", href: "https://wa.me/79000000000" },
-                { emoji: "💙", label: "ВКонтакте", value: "vk.com/stargreet", href: "https://vk.com" },
+                { emoji: "✈️", label: "Telegram", value: "@anastasia64647", href: "https://t.me/anastasia64647" },
+                { emoji: "💬", label: "WhatsApp", value: "+7 (900) 122-46-90", href: "https://wa.me/79001224690" },
+                { emoji: "🛍️", label: "Авито", value: "Профиль на Авито", href: "https://www.avito.ru/brands/3aff4584f599bf9abe69698bbf483b84" },
               ].map((item) => (
                 <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer"
                   className="glass rounded-xl p-5 flex items-center gap-4 border border-white/08 hover:border-white/20 transition-all cursor-pointer group no-underline block">
