@@ -214,23 +214,9 @@ export default function Index() {
 
           <div className="section-enter delay-200 relative">
             <div className="relative rounded-2xl overflow-hidden animate-float" style={{ animationDuration: "5s" }}>
-              <img src={HERO_IMG} alt="Звезда поздравляет" className="w-full h-[500px] object-cover" />
-              <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(10,8,20,0.8) 0%, transparent 50%)" }} />
-              <div className="absolute bottom-6 left-6 right-6 glass-strong rounded-xl p-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full flex items-center justify-center text-xl" style={{ background: "linear-gradient(135deg, var(--neon-pink), var(--neon-purple))" }}>⭐</div>
-                  <div>
-                    <div className="text-white font-oswald font-semibold">Иван, с Днём Рождения!</div>
-                    <div className="text-white/50 text-sm font-golos">от Ивана Урганта • только что</div>
-                  </div>
-                  <div className="ml-auto w-8 h-8 rounded-full flex items-center justify-center" style={{ background: "var(--neon-pink)" }}>
-                    <Icon name="Play" size={12} />
-                  </div>
-                </div>
+              <div style={{ aspectRatio: "16/9" }}>
+                <iframe src="https://vkvideo.ru/video_ext.php?oid=-238057825&id=456239020&hd=2" width="100%" height="100%" frameBorder="0" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowFullScreen className="w-full h-full rounded-2xl" />
               </div>
-            </div>
-            <div className="absolute -top-4 -right-4 glass rounded-xl px-4 py-2 text-sm font-golos" style={{ border: "1px solid rgba(255,45,120,0.3)", color: "var(--neon-pink)" }}>
-              🔥 Хит недели
             </div>
           </div>
         </div>
