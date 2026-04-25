@@ -23,7 +23,7 @@ const STARS: { name: string; category: string; emoji: string; tag: string; video
   { name: "Стас Михайлов", category: "Певец", emoji: "🎵", tag: "" },
   { name: "Баста", category: "Рэпер", emoji: "🎧", tag: "", videoUrl: "https://vkvideo.ru/video_ext.php?oid=-238057825&id=456239026&hd=2&autoplay=0&js_api=1&no_allow_player_extensions=1", img: "https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/bucket/ebc77a64-e9d0-49a2-bd25-cdcefea8ce90.png" },
   { name: "Сергей Бурунов", category: "Актёр", emoji: "🎬", tag: "NEW" },
-  { name: "Сергей Жуков", category: "Певец, «Руки Вверх»", emoji: "🎸", tag: "" },
+  { name: "Сергей Жуков", category: "Певец, «Руки Вверх»", emoji: "🎸", tag: "", videoUrl: "https://vkvideo.ru/video_ext.php?oid=-238057825&id=456239023&hd=2&autoplay=0&js_api=1&no_allow_player_extensions=1", img: "https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/bucket/5b6ba9c8-2425-4314-abd9-182422e2c7be.png" },
   { name: "Олег Газманов", category: "Певец", emoji: "🌟", tag: "" },
   { name: "Сергей Лазарев", category: "Певец", emoji: "✨", tag: "" },
   { name: "Григорий Лепс", category: "Певец", emoji: "🥂", tag: "" },
