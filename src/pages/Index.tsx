@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Icon from "@/components/ui/icon";
 import ReviewsCarousel from "@/components/ReviewsCarousel";
 
@@ -76,18 +76,11 @@ export default function Index() {
   const [detailsOpen, setDetailsOpen] = useState(false);
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
   const [starIndex, setStarIndex] = useState(0);
-  const [autoplay, setAutoplay] = useState(true);
   const STARS_PER_PAGE = 4;
   const starsTotal = STARS.length;
-  const prevStar = () => { setAutoplay(false); setStarIndex(i => (i - 1 + starsTotal) % starsTotal); };
-  const nextStar = () => { setAutoplay(false); setStarIndex(i => (i + 1) % starsTotal); };
+  const prevStar = () => setStarIndex(i => (i - 1 + starsTotal) % starsTotal);
+  const nextStar = () => setStarIndex(i => (i + 1) % starsTotal);
   const getVisibleStars = () => Array.from({ length: STARS_PER_PAGE }, (_, k) => STARS[(starIndex + k) % starsTotal]);
-
-  useEffect(() => {
-    if (!autoplay) return;
-    const timer = setInterval(() => setStarIndex(i => (i + 1) % starsTotal), 3500);
-    return () => clearInterval(timer);
-  }, [starsTotal, autoplay]);
 
   const submitForm = async () => {
     if (!formData.name.trim() || !formData.contact.trim()) return;
