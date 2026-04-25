@@ -34,7 +34,7 @@ const STARS = [
 const GALLERY_ITEMS: { title: string; star: string; views: string; emoji: string; img?: string; price: string; videoUrl?: string }[] = [
   { title: "Поздравление от Первого канала", star: "Первый канал", views: "12 тыс.", emoji: "🎂", img: "https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/bucket/66f51039-aad8-4b03-b1c3-70656714a621.jpeg", price: "3 000 ₽", videoUrl: "https://vkvideo.ru/video_ext.php?oid=-238057825&id=456239017&hd=2" },
   { title: "Поздравление от канала «Россия 1»", star: "Россия 1", views: "8 тыс.", emoji: "🎉", img: "https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/bucket/e3bb268d-9413-44fe-b461-10a225d60349.jpeg", price: "3 000 ₽" },
-  { title: "Ведущая + Путин", star: "Персональное поздравление", views: "21 тыс.", emoji: "💍", img: "https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/bucket/f365e94a-27ad-42ac-9fb3-edc956a80639.jpeg", price: "2 000 ₽" },
+  { title: "Ведущая + Путин", star: "Персональное поздравление", views: "21 тыс.", emoji: "💍", img: "https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/bucket/f365e94a-27ad-42ac-9fb3-edc956a80639.jpeg", price: "2 000 ₽", videoUrl: "https://vkvideo.ru/video_ext.php?oid=-238057825&id=456239018&hd=2" },
   { title: "Юбилей 50 лет", star: "Нагиев", views: "6 тыс.", emoji: "🥂", price: "1 500 ₽" },
   { title: "Новый год!", star: "Тимати", views: "45 тыс.", emoji: "🎆", price: "1 500 ₽" },
   { title: "Выпускной", star: "Ксения Собчак", views: "9 тыс.", emoji: "🎓", price: "1 500 ₽" },
