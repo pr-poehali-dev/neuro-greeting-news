@@ -16,7 +16,7 @@ const NAV_ITEMS = [
 ];
 
 const STARS: { name: string; category: string; emoji: string; tag: string; videoUrl?: string; img?: string }[] = [
-  { name: "Владимир Путин", category: "Политик", emoji: "🇷🇺", tag: "ТОП" },
+  { name: "Владимир Путин", category: "Политик", emoji: "🇷🇺", tag: "ТОП", videoUrl: "https://vkvideo.ru/video_ext.php?oid=-238057825&id=456239040&hd=2&autoplay=0&js_api=1&no_allow_player_extensions=1", img: "https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/bucket/11f520a3-1f8f-4108-acc6-b377af38ecc4.png" },
   { name: "Дмитрий Нагиев", category: "Актёр, телеведущий", emoji: "🎭", tag: "ХИТ", videoUrl: "https://vkvideo.ru/video_ext.php?oid=-238057825&id=456239034&hd=2&autoplay=0&js_api=1&no_allow_player_extensions=1", img: "https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/bucket/ab249207-2714-4aa0-88e5-608c0147ab7f.jpg" },
   { name: "Николай Басков", category: "Певец", emoji: "🎤", tag: "", videoUrl: "https://vkvideo.ru/video_ext.php?oid=-238057825&id=456239024&hd=2&autoplay=0&js_api=1&no_allow_player_extensions=1", img: "https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/bucket/d29e5381-6863-4124-9378-d8bf5743e589.png" },
   { name: "Филипп Киркоров", category: "Певец", emoji: "👑", tag: "ТОП", videoUrl: "https://vkvideo.ru/video_ext.php?oid=-238057825&id=456239022&hd=2&autoplay=0&js_api=1&no_allow_player_extensions=1", img: "https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/bucket/92e0afff-e88e-46a1-9175-1d7241840fad.png" },
