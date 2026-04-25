@@ -215,7 +215,7 @@ export default function Index() {
           <div className="section-enter delay-200 relative">
             <div className="relative rounded-2xl overflow-hidden animate-float" style={{ animationDuration: "5s" }}>
               <div style={{ aspectRatio: "16/9" }}>
-                <iframe src="https://vkvideo.ru/video_ext.php?oid=-238057825&id=456239020&hd=2" width="100%" height="100%" frameBorder="0" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowFullScreen className="w-full h-full rounded-2xl" />
+                <iframe src="https://vkvideo.ru/video_ext.php?oid=-238057825&id=456239021&hd=2" width="100%" height="100%" frameBorder="0" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowFullScreen className="w-full h-full rounded-2xl" />
               </div>
             </div>
           </div>
