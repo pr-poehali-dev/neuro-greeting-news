@@ -29,6 +29,7 @@ const STARS: { name: string; category: string; emoji: string; tag: string; video
   { name: "Григорий Лепс", category: "Певец", emoji: "🥂", tag: "", videoUrl: "https://vkvideo.ru/video_ext.php?oid=-238057825&id=456239029&hd=2&autoplay=0&js_api=1&no_allow_player_extensions=1", img: "https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/bucket/48c1a72c-4fb6-4c12-ac47-2fa05ccca9e9.jpg" },
   { name: "Прохор Шаляпин", category: "Певец", emoji: "🎶", tag: "", videoUrl: "https://vkvideo.ru/video_ext.php?oid=-238057825&id=456239028&hd=2&autoplay=0&js_api=1&no_allow_player_extensions=1", img: "https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/bucket/ab94e194-5506-414b-9104-a20bf428c114.jpg" },
   { name: "Гарик Харламов", category: "Комик, актёр", emoji: "😄", tag: "ХИТ", videoUrl: "https://vkvideo.ru/video_ext.php?oid=-238057825&id=456239033&hd=2&autoplay=0&js_api=1&no_allow_player_extensions=1", img: "https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/bucket/bc2dd402-419b-4bd9-8f42-7d7f4de8d7cd.jpg" },
+  { name: "SHAMAN", category: "Певец", emoji: "🔥", tag: "NEW", videoUrl: "https://vkvideo.ru/video_ext.php?oid=-238057825&id=456239036&hd=2&autoplay=0&js_api=1&no_allow_player_extensions=1", img: "https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/bucket/f26eb3fd-1310-4a46-b55a-ac7bbf7fa223.jpg" },
 ];
 
 const GALLERY_ITEMS: { title: string; star: string; views: string; emoji: string; img?: string; price: string; videoUrl?: string }[] = [
