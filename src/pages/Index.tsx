@@ -187,7 +187,8 @@ export default function Index() {
               <h1 className="font-oswald font-bold leading-none">
                 <span className="block text-4xl lg:text-6xl text-white mb-2">НЕЙРО ВИДЕО-ПОЗДРАВЛЕНИЯ</span>
                 <span className="block text-4xl lg:text-6xl gradient-text">ОТ ЗНАМЕНИТОСТЕЙ</span>
-                <span className="block text-3xl lg:text-4xl text-white/80 mt-2">и в формате новостей — на заказ</span>
+                <span className="block text-4xl lg:text-6xl gradient-text">В ФОРМАТЕ НОВОСТЕЙ</span>
+                <span className="block text-3xl lg:text-4xl text-white/80 mt-2">на заказ</span>
               </h1>
             </div>
 
