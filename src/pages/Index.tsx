@@ -215,7 +215,7 @@ export default function Index() {
           <div className="section-enter delay-200 relative">
             <div className="relative rounded-2xl overflow-hidden animate-float" style={{ animationDuration: "5s" }}>
               <div style={{ aspectRatio: "16/9" }}>
-                <video src="https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/bucket/5debb0ee-f036-45d7-bf96-41a9808a926d.MP4" controls className="w-full h-full rounded-2xl" style={{ background: "#000" }} />
+                <video src="https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/bucket/5debb0ee-f036-45d7-bf96-41a9808a926d.MP4" controls controlsList="nodownload" className="w-full h-full rounded-2xl" style={{ background: "#000" }} />
               </div>
             </div>
           </div>
