@@ -32,6 +32,7 @@ const STARS: { name: string; category: string; emoji: string; tag: string; video
   { name: "SHAMAN", category: "Певец", emoji: "🔥", tag: "NEW", videoUrl: "https://vkvideo.ru/video_ext.php?oid=-238057825&id=456239036&hd=2&autoplay=0&js_api=1&no_allow_player_extensions=1", img: "https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/bucket/f26eb3fd-1310-4a46-b55a-ac7bbf7fa223.jpg" },
   { name: "Надежда Кадышева", category: "Певица, «Золотое кольцо»", emoji: "🌺", tag: "", videoUrl: "https://vkvideo.ru/video_ext.php?oid=-238057825&id=456239032&hd=2&autoplay=0&js_api=1&no_allow_player_extensions=1", img: "https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/bucket/809d953b-4b0a-4808-9d76-c09b89fa6d66.jpg" },
   { name: "ANNA ASTI", category: "Певица", emoji: "💫", tag: "NEW", videoUrl: "https://vkvideo.ru/video_ext.php?oid=-238057825&id=456239037&hd=2&autoplay=0&js_api=1&no_allow_player_extensions=1", img: "https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/bucket/70fdc3ca-f206-4016-8b7e-680e799648e3.jpg" },
+  { name: "Ольга Бузова", category: "Певица, телеведущая", emoji: "🌸", tag: "", videoUrl: "https://vkvideo.ru/video_ext.php?oid=-238057825&id=456239038&hd=2&autoplay=0&js_api=1&no_allow_player_extensions=1", img: "https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/bucket/b7e7012f-beb6-4689-a1b1-1ecd404afba5.jpg" },
 ];
 
 const GALLERY_ITEMS: { title: string; star: string; views: string; emoji: string; img?: string; price: string; videoUrl?: string }[] = [
