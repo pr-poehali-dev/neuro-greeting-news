@@ -452,25 +452,38 @@ export default function Index() {
             <p className="text-white/50 font-golos">Ответим в течение 2 часов</p>
           </div>
 
-          <div className="max-w-lg mx-auto space-y-4">
-            {[
-              { icon: "Send", label: "Telegram", value: "@anastasia64647", href: "https://t.me/anastasia64647", color: "#229ED9" },
-              { icon: "MessageCircle", label: "WhatsApp", value: "+7 (900) 122-46-90", href: "https://wa.me/79001224690", color: "#25D366" },
-              { icon: "ShoppingBag", label: "Авито", value: "Профиль на Авито", href: "https://www.avito.ru/brands/3aff4584f599bf9abe69698bbf483b84", color: "#00AAFF" },
-            ].map((item) => (
-              <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer"
-                className="glass rounded-xl p-5 flex items-center gap-4 border border-white/08 hover:border-white/20 transition-all cursor-pointer group no-underline block">
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
-                  style={{ background: item.color + "22", border: `1px solid ${item.color}44` }}>
-                  <Icon name={item.icon} fallback="Link" size={22} style={{ color: item.color }} />
-                </div>
-                <div>
-                  <div className="text-white/40 text-xs font-golos uppercase tracking-wider">{item.label}</div>
-                  <div className="text-white font-golos font-medium group-hover:text-pink-400 transition-colors">{item.value}</div>
-                </div>
-                <Icon name="ExternalLink" size={16} className="ml-auto text-white/20 group-hover:text-white/50 transition-colors" />
-              </a>
-            ))}
+          <div className="max-w-lg mx-auto grid grid-cols-2 gap-4">
+            {/* Telegram */}
+            <a href="https://t.me/anastasiavideo1" target="_blank" rel="noopener noreferrer"
+              className="flex items-center gap-3 rounded-2xl px-5 py-4 font-golos font-semibold text-white text-base transition-all hover:scale-105 hover:brightness-110 no-underline"
+              style={{ background: "#229ED9" }}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L8.32 14.617l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.828.942z"/></svg>
+              Telegram
+            </a>
+
+            {/* ВКонтакте */}
+            <a href="https://vk.ru/club238057825" target="_blank" rel="noopener noreferrer"
+              className="flex items-center gap-3 rounded-2xl px-5 py-4 font-golos font-semibold text-white text-base transition-all hover:scale-105 hover:brightness-110 no-underline"
+              style={{ background: "#0077FF" }}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M12.785 16.241s.288-.032.436-.194c.136-.148.132-.427.132-.427s-.02-1.304.585-1.498c.596-.19 1.364 1.26 2.177 1.817.614.422 1.08.33 1.08.33l2.17-.03s1.135-.07.597-1.09c-.044-.083-.314-.661-1.618-1.87-1.366-1.265-1.183-1.06.462-3.246.999-1.332 1.398-2.147 1.272-2.494-.12-.332-.855-.244-.855-.244l-2.44.015s-.181-.025-.315.055c-.132.078-.216.26-.216.26s-.387 1.03-.904 1.905c-1.088 1.85-1.524 1.948-1.702 1.832-.414-.267-.31-1.077-.31-1.652 0-1.797.272-2.548-.53-2.74-.267-.064-.463-.106-1.144-.113-.874-.009-1.614.003-2.032.208-.278.136-.493.44-.362.457.162.021.528.099.722.363.25.341.241 1.107.241 1.107s.144 2.115-.335 2.378c-.329.18-.78-.187-1.748-1.86-.497-.858-.873-1.808-.873-1.808s-.072-.176-.202-.271c-.156-.114-.376-.15-.376-.15l-2.317.015s-.348.01-.475.161C4.02 8.422 4.108 8.74 4.108 8.74s1.81 4.237 3.861 6.37c1.88 1.956 4.017 1.83 4.017 1.83h.799z"/></svg>
+              ВКонтакте
+            </a>
+
+            {/* Avito */}
+            <a href="https://www.avito.ru/brands/3aff4584f599bf9abe69698bbf483b84" target="_blank" rel="noopener noreferrer"
+              className="flex items-center gap-3 rounded-2xl px-5 py-4 font-golos font-semibold text-base transition-all hover:scale-105 hover:brightness-110 no-underline"
+              style={{ background: "#ffffff", color: "#1a1a1a" }}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="7" cy="7" r="3" fill="#965EEB"/><circle cx="17" cy="7" r="3" fill="#04E061"/><circle cx="7" cy="17" r="3" fill="#FF4053"/><circle cx="17" cy="17" r="3" fill="#00AEFF"/></svg>
+              Avito
+            </a>
+
+            {/* WhatsApp */}
+            <a href="https://wa.me/79001224690" target="_blank" rel="noopener noreferrer"
+              className="flex items-center gap-3 rounded-2xl px-5 py-4 font-golos font-semibold text-white text-base transition-all hover:scale-105 hover:brightness-110 no-underline"
+              style={{ background: "#25D366" }}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
           </div>
         </div>
       </section>
