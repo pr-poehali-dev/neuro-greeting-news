@@ -15,13 +15,13 @@ const NAV_ITEMS = [
   { id: "contact", label: "Контакты" },
 ];
 
-const STARS = [
+const STARS: { name: string; category: string; emoji: string; tag: string; videoUrl?: string; img?: string }[] = [
   { name: "Владимир Путин", category: "Политик", emoji: "🇷🇺", tag: "ТОП" },
   { name: "Дмитрий Нагиев", category: "Актёр, телеведущий", emoji: "🎭", tag: "ХИТ" },
   { name: "Николай Басков", category: "Певец", emoji: "🎤", tag: "" },
   { name: "Филипп Киркоров", category: "Певец", emoji: "👑", tag: "ТОП" },
   { name: "Стас Михайлов", category: "Певец", emoji: "🎵", tag: "" },
-  { name: "Баста", category: "Рэпер", emoji: "🎧", tag: "", videoUrl: "https://vkvideo.ru/video_ext.php?oid=-238057825&id=456239026&hd=2&autoplay=0&js_api=1&no_allow_player_extensions=1" },
+  { name: "Баста", category: "Рэпер", emoji: "🎧", tag: "", videoUrl: "https://vkvideo.ru/video_ext.php?oid=-238057825&id=456239026&hd=2&autoplay=0&js_api=1&no_allow_player_extensions=1", img: "https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/bucket/ebc77a64-e9d0-49a2-bd25-cdcefea8ce90.png" },
   { name: "Сергей Бурунов", category: "Актёр", emoji: "🎬", tag: "NEW" },
   { name: "Сергей Жуков", category: "Певец, «Руки Вверх»", emoji: "🎸", tag: "" },
   { name: "Олег Газманов", category: "Певец", emoji: "🌟", tag: "" },
@@ -287,9 +287,9 @@ export default function Index() {
                     {star.tag}
                   </span>
                 )}
-                <div className="relative h-36 flex items-center justify-center"
+                <div className="relative h-36 flex items-center justify-center overflow-hidden"
                   style={{ background: `linear-gradient(135deg, hsl(${i * 25 + 280}, 70%, 15%), hsl(${i * 25 + 320}, 80%, 8%))` }}>
-                  <span className="text-5xl">{star.emoji}</span>
+                  {star.img ? <img src={star.img} alt={star.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" /> : <span className="text-5xl">{star.emoji}</span>}
                   <div className="absolute inset-0 flex items-center justify-center" onClick={() => star.videoUrl && setActiveVideo(star.videoUrl)}>
                     <div className={`w-12 h-12 rounded-full glass-strong flex items-center justify-center transition-all duration-300 scale-75 group-hover:scale-100 ${star.videoUrl ? "opacity-80 group-hover:opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
                       <Icon name="Play" size={16} />
