@@ -27,7 +27,7 @@ const STARS: { name: string; category: string; emoji: string; tag: string; video
   { name: "Олег Газманов", category: "Певец", emoji: "🌟", tag: "", videoUrl: "https://vkvideo.ru/video_ext.php?oid=-238057825&id=456239025&hd=2&autoplay=0&js_api=1&no_allow_player_extensions=1", img: "https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/bucket/62b4a2c8-def5-446a-bbcd-92b6156e74c4.png" },
   { name: "Сергей Лазарев", category: "Певец", emoji: "✨", tag: "" },
   { name: "Григорий Лепс", category: "Певец", emoji: "🥂", tag: "", videoUrl: "https://vkvideo.ru/video_ext.php?oid=-238057825&id=456239029&hd=2&autoplay=0&js_api=1&no_allow_player_extensions=1", img: "https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/bucket/48c1a72c-4fb6-4c12-ac47-2fa05ccca9e9.jpg" },
-  { name: "Прохор Шаляпин", category: "Певец", emoji: "🎶", tag: "" },
+  { name: "Прохор Шаляпин", category: "Певец", emoji: "🎶", tag: "", videoUrl: "https://vkvideo.ru/video_ext.php?oid=-238057825&id=456239028&hd=2&autoplay=0&js_api=1&no_allow_player_extensions=1", img: "https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/bucket/ab94e194-5506-414b-9104-a20bf428c114.jpg" },
   { name: "Гарик Харламов", category: "Комик, актёр", emoji: "😄", tag: "ХИТ" },
 ];
 
