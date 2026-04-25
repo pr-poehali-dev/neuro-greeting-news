@@ -76,16 +76,18 @@ export default function Index() {
   const [detailsOpen, setDetailsOpen] = useState(false);
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
   const [starIndex, setStarIndex] = useState(0);
+  const [autoplay, setAutoplay] = useState(true);
   const STARS_PER_PAGE = 4;
   const starsTotal = STARS.length;
-  const prevStar = () => setStarIndex(i => (i - 1 + starsTotal) % starsTotal);
-  const nextStar = () => setStarIndex(i => (i + 1) % starsTotal);
+  const prevStar = () => { setAutoplay(false); setStarIndex(i => (i - 1 + starsTotal) % starsTotal); };
+  const nextStar = () => { setAutoplay(false); setStarIndex(i => (i + 1) % starsTotal); };
   const getVisibleStars = () => Array.from({ length: STARS_PER_PAGE }, (_, k) => STARS[(starIndex + k) % starsTotal]);
 
   useEffect(() => {
+    if (!autoplay) return;
     const timer = setInterval(() => setStarIndex(i => (i + 1) % starsTotal), 3500);
     return () => clearInterval(timer);
-  }, [starsTotal]);
+  }, [starsTotal, autoplay]);
 
   const submitForm = async () => {
     if (!formData.name.trim() || !formData.contact.trim()) return;
@@ -156,7 +158,7 @@ export default function Index() {
           </div>
 
           <div className="flex items-center gap-3">
-            <button onClick={() => scrollTo("contact")} className="btn-neon px-5 py-2 rounded-lg text-sm">
+            <button onClick={() => scrollTo("contact")} className="btn-neon px-5 py-2 rounded-lg text-sm" style={{ boxShadow: "0 0 14px var(--neon-pink), 0 0 28px rgba(255,0,128,0.35)", animation: "glowPulse 2s ease-in-out infinite" }}>
               <span>Заказать</span>
             </button>
             <button className="md:hidden text-white/70" onClick={() => setMobileOpen(!mobileOpen)}>
@@ -323,7 +325,7 @@ export default function Index() {
                       <p className="text-white/50 text-xs font-golos mt-1">{star.category}</p>
                       <div className="flex items-center justify-between mt-3">
                         <span className="font-oswald font-bold text-sm" style={{ color: "var(--neon-cyan)" }}>1 500 ₽</span>
-                        <button onClick={() => scrollTo("contact")} className="btn-neon px-3 py-1.5 rounded-lg text-xs" style={{ boxShadow: "0 0 12px var(--neon-pink), 0 0 24px rgba(255,0,128,0.3)", animation: "glowPulse 2s ease-in-out infinite" }}>
+                        <button onClick={() => scrollTo("contact")} className="btn-neon px-3 py-1.5 rounded-lg text-xs">
                           <span>Заказать</span>
                         </button>
                       </div>
