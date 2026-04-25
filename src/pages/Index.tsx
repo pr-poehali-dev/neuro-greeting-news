@@ -31,8 +31,8 @@ const STARS = [
   { name: "Гарик Харламов", category: "Комик, актёр", emoji: "😄", tag: "ХИТ" },
 ];
 
-const GALLERY_ITEMS: { title: string; star: string; views: string; emoji: string; img?: string; price: string }[] = [
-  { title: "Поздравление от Первого канала", star: "Первый канал", views: "12 тыс.", emoji: "🎂", img: "https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/bucket/66f51039-aad8-4b03-b1c3-70656714a621.jpeg", price: "3 000 ₽" },
+const GALLERY_ITEMS: { title: string; star: string; views: string; emoji: string; img?: string; price: string; videoUrl?: string }[] = [
+  { title: "Поздравление от Первого канала", star: "Первый канал", views: "12 тыс.", emoji: "🎂", img: "https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/bucket/66f51039-aad8-4b03-b1c3-70656714a621.jpeg", price: "3 000 ₽", videoUrl: "https://vkvideo.ru/video_ext.php?oid=-238057825&id=456239017&hd=2" },
   { title: "Поздравление от канала «Россия 1»", star: "Россия 1", views: "8 тыс.", emoji: "🎉", img: "https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/bucket/e3bb268d-9413-44fe-b461-10a225d60349.jpeg", price: "3 000 ₽" },
   { title: "Ведущая + Путин", star: "Персональное поздравление", views: "21 тыс.", emoji: "💍", img: "https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/bucket/f365e94a-27ad-42ac-9fb3-edc956a80639.jpeg", price: "2 000 ₽" },
   { title: "Юбилей 50 лет", star: "Нагиев", views: "6 тыс.", emoji: "🥂", price: "1 500 ₽" },
@@ -70,6 +70,7 @@ export default function Index() {
   const [formData, setFormData] = useState({ name: "", contact: "", star: "", recipient: "", occasion: "", message: "" });
   const [formStatus, setFormStatus] = useState<"idle" | "loading" | "ok" | "error">("idle");
   const [detailsOpen, setDetailsOpen] = useState(false);
+  const [activeVideo, setActiveVideo] = useState<string | null>(null);
 
   const submitForm = async () => {
     if (!formData.name.trim() || !formData.contact.trim()) return;
@@ -100,6 +101,19 @@ export default function Index() {
 
   return (
     <div className="min-h-screen overflow-x-hidden">
+      {/* VIDEO MODAL */}
+      {activeVideo && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4" style={{ background: "rgba(0,0,0,0.85)" }} onClick={() => setActiveVideo(null)}>
+          <div className="relative w-full max-w-3xl" onClick={e => e.stopPropagation()}>
+            <button onClick={() => setActiveVideo(null)} className="absolute -top-10 right-0 text-white/70 hover:text-white transition-colors">
+              <Icon name="X" size={28} />
+            </button>
+            <div className="rounded-2xl overflow-hidden" style={{ aspectRatio: "16/9" }}>
+              <iframe src={activeVideo} width="100%" height="100%" frameBorder="0" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowFullScreen className="w-full h-full" />
+            </div>
+          </div>
+        </div>
+      )}
       {/* NAVBAR */}
       <nav className="fixed top-0 left-0 right-0 z-50 glass-strong">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
@@ -244,8 +258,8 @@ export default function Index() {
                   ) : (
                     <div className="absolute inset-0 flex items-center justify-center text-6xl opacity-40">{item.emoji}</div>
                   )}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-14 h-14 rounded-full glass-strong flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 scale-75 group-hover:scale-100">
+                  <div className="absolute inset-0 flex items-center justify-center" onClick={() => item.videoUrl && setActiveVideo(item.videoUrl)}>
+                    <div className={`w-14 h-14 rounded-full glass-strong flex items-center justify-center transition-all duration-300 scale-75 group-hover:scale-100 ${item.videoUrl ? "opacity-80 group-hover:opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
                       <Icon name="Play" size={20} />
                     </div>
                   </div>
