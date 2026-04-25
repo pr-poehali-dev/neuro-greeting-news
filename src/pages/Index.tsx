@@ -197,10 +197,6 @@ export default function Index() {
             </p>
 
             <div className="section-enter delay-400 flex flex-col sm:flex-row gap-4">
-              <button onClick={() => scrollTo("stars")} className="btn-neon px-8 py-4 rounded-xl text-base flex items-center justify-center gap-2">
-                <span>Выбрать звезду</span>
-                <Icon name="ArrowRight" size={18} />
-              </button>
               <button onClick={() => scrollTo("gallery")} className="btn-outline-neon px-8 py-4 rounded-xl text-base flex items-center justify-center gap-2">
                 <Icon name="Play" size={18} />
                 <span>Смотреть примеры</span>
