@@ -282,36 +282,47 @@ export default function Index() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
-            {STARS.map((star, i) => (
-              <div key={i} className="glass star-card rounded-2xl overflow-hidden group cursor-pointer relative">
-                {star.tag && (
-                  <span className="absolute top-3 right-3 z-10 text-xs font-oswald font-bold px-2 py-1 rounded-md"
-                    style={{ background: star.tag === "NEW" ? "var(--neon-cyan)" : star.tag === "ТОП" ? "var(--neon-pink)" : "var(--neon-orange)", color: star.tag === "NEW" ? "#000" : "#fff" }}>
-                    {star.tag}
-                  </span>
-                )}
-                <div className="relative h-36 flex items-center justify-center overflow-hidden"
-                  style={{ background: `linear-gradient(135deg, hsl(${i * 25 + 280}, 70%, 15%), hsl(${i * 25 + 320}, 80%, 8%))` }}>
-                  {star.img ? <img src={star.img} alt={star.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" /> : <span className="text-5xl">{star.emoji}</span>}
-                  <div className="absolute inset-0 flex items-center justify-center" onClick={() => star.videoUrl && setActiveVideo(star.videoUrl)}>
-                    <div className={`w-12 h-12 rounded-full glass-strong flex items-center justify-center transition-all duration-300 scale-75 group-hover:scale-100 ${star.videoUrl ? "opacity-80 group-hover:opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
-                      <Icon name="Play" size={16} />
+          <div className="overflow-x-auto pb-4 -mx-6 px-6" style={{ scrollbarWidth: "thin", scrollbarColor: "var(--neon-pink) transparent" }}>
+            <div className="flex gap-5" style={{ width: "max-content" }}>
+              {STARS.map((star, i) => (
+                <div key={i} className="glass star-card rounded-2xl overflow-hidden group cursor-pointer relative flex-shrink-0" style={{ width: "200px" }}>
+                  {star.tag && (
+                    <span className="absolute top-3 right-3 z-10 text-xs font-oswald font-bold px-2 py-1 rounded-md"
+                      style={{ background: star.tag === "NEW" ? "var(--neon-cyan)" : star.tag === "ТОП" ? "var(--neon-pink)" : "var(--neon-orange)", color: star.tag === "NEW" ? "#000" : "#fff" }}>
+                      {star.tag}
+                    </span>
+                  )}
+                  <div className="relative h-36 flex items-center justify-center overflow-hidden"
+                    style={{ background: `linear-gradient(135deg, hsl(${i * 25 + 280}, 70%, 15%), hsl(${i * 25 + 320}, 80%, 8%))` }}>
+                    {star.img ? <img src={star.img} alt={star.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" /> : <span className="text-5xl">{star.emoji}</span>}
+                    <div className="absolute inset-0 flex items-center justify-center" onClick={() => star.videoUrl && setActiveVideo(star.videoUrl)}>
+                      <div className={`w-12 h-12 rounded-full glass-strong flex items-center justify-center transition-all duration-300 scale-75 group-hover:scale-100 ${star.videoUrl ? "opacity-80 group-hover:opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
+                        <Icon name="Play" size={16} />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <h3 className="font-oswald font-bold text-base text-white leading-tight">{star.name}</h3>
+                    <p className="text-white/50 text-xs font-golos mt-1">{star.category}</p>
+                    <div className="flex items-center justify-between mt-3">
+                      <span className="font-oswald font-bold text-sm" style={{ color: "var(--neon-cyan)" }}>1 500 ₽</span>
+                      <button onClick={() => scrollTo("contact")} className="btn-neon px-3 py-1.5 rounded-lg text-xs">
+                        <span>Заказать</span>
+                      </button>
                     </div>
                   </div>
                 </div>
-                <div className="p-4">
-                  <h3 className="font-oswald font-bold text-base text-white leading-tight">{star.name}</h3>
-                  <p className="text-white/50 text-xs font-golos mt-1">{star.category}</p>
-                  <div className="flex items-center justify-between mt-3">
-                    <span className="font-oswald font-bold text-sm" style={{ color: "var(--neon-cyan)" }}>1 500 ₽</span>
-                    <button onClick={() => scrollTo("contact")} className="btn-neon px-3 py-1.5 rounded-lg text-xs">
-                      <span>Заказать</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-8 rounded-2xl p-6 flex items-start gap-4 border" style={{ background: "rgba(255,255,255,0.04)", borderColor: "rgba(255,255,255,0.1)" }}>
+            <div className="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: "linear-gradient(135deg, var(--neon-pink), var(--neon-purple))" }}>
+              <Icon name="Info" size={20} color="white" />
+            </div>
+            <p className="text-white/70 font-golos text-sm leading-relaxed">
+              Если вы не нашли нужную знаменитость в списке, <span className="text-white font-semibold">напишите нам</span> — с большой вероятностью мы её создадим.
+            </p>
           </div>
         </div>
       </section>
