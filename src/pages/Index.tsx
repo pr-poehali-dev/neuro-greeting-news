@@ -245,14 +245,6 @@ export default function Index() {
                   ) : (
                     <div className="absolute inset-0 flex items-center justify-center text-6xl opacity-40">{item.emoji}</div>
                   )}
-                  {/* Затемнение сверху для читаемости текста */}
-                  <div className="absolute inset-x-0 top-0 h-16" style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.75) 0%, transparent 100%)" }} />
-                  {/* Название поверх превью */}
-                  <div className="absolute top-0 inset-x-0 px-3 pt-3 z-10">
-                    <span className="font-oswald font-bold text-sm uppercase leading-tight drop-shadow-lg" style={{ color: "#FFD700", textShadow: "0 1px 4px rgba(0,0,0,0.9)", letterSpacing: "0.04em" }}>
-                      {item.title}
-                    </span>
-                  </div>
                   <div className="absolute inset-0 flex items-center justify-center" onClick={() => item.videoUrl && setActiveVideo(item.videoUrl)}>
                     <div className={`w-14 h-14 rounded-full glass-strong flex items-center justify-center transition-all duration-300 scale-75 group-hover:scale-100 ${item.videoUrl ? "opacity-80 group-hover:opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
                       <Icon name="Play" size={20} />
