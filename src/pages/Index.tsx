@@ -241,7 +241,7 @@ export default function Index() {
               <div key={i} className="glass star-card rounded-2xl overflow-hidden group cursor-pointer" style={{ width: "100%", maxWidth: "380px", margin: "0 auto" }}>
                 <div className="relative overflow-hidden" style={{ height: "240px", background: `linear-gradient(135deg, hsl(${i * 40 + 200}, 70%, 10%), hsl(${i * 40 + 240}, 80%, 6%))` }}>
                   {item.img ? (
-                    <img src={item.img} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <img src={item.img} alt={item.title} className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
                   ) : (
                     <div className="absolute inset-0 flex items-center justify-center text-6xl opacity-40">{item.emoji}</div>
                   )}
