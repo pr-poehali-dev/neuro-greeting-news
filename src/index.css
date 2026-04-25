@@ -212,3 +212,17 @@
     transform: translateY(0);
   }
 }
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 12px var(--neon-pink),
+      0 0 24px rgba(255, 0, 128, 0.3);
+  }
+  50% {
+    box-shadow:
+      0 0 20px var(--neon-pink),
+      0 0 40px rgba(255, 0, 128, 0.6);
+  }
+}

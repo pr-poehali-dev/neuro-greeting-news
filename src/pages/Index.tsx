@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
 import ReviewsCarousel from "@/components/ReviewsCarousel";
 
@@ -81,6 +81,11 @@ export default function Index() {
   const prevStar = () => setStarIndex(i => (i - 1 + starsTotal) % starsTotal);
   const nextStar = () => setStarIndex(i => (i + 1) % starsTotal);
   const getVisibleStars = () => Array.from({ length: STARS_PER_PAGE }, (_, k) => STARS[(starIndex + k) % starsTotal]);
+
+  useEffect(() => {
+    const timer = setInterval(() => setStarIndex(i => (i + 1) % starsTotal), 3500);
+    return () => clearInterval(timer);
+  }, [starsTotal]);
 
   const submitForm = async () => {
     if (!formData.name.trim() || !formData.contact.trim()) return;
@@ -318,7 +323,7 @@ export default function Index() {
                       <p className="text-white/50 text-xs font-golos mt-1">{star.category}</p>
                       <div className="flex items-center justify-between mt-3">
                         <span className="font-oswald font-bold text-sm" style={{ color: "var(--neon-cyan)" }}>1 500 ₽</span>
-                        <button onClick={() => scrollTo("contact")} className="btn-neon px-3 py-1.5 rounded-lg text-xs">
+                        <button onClick={() => scrollTo("contact")} className="btn-neon px-3 py-1.5 rounded-lg text-xs" style={{ boxShadow: "0 0 12px var(--neon-pink), 0 0 24px rgba(255,0,128,0.3)", animation: "glowPulse 2s ease-in-out infinite" }}>
                           <span>Заказать</span>
                         </button>
                       </div>
