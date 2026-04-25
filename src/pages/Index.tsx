@@ -75,6 +75,12 @@ export default function Index() {
   const [formStatus, setFormStatus] = useState<"idle" | "loading" | "ok" | "error">("idle");
   const [detailsOpen, setDetailsOpen] = useState(false);
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
+  const [starIndex, setStarIndex] = useState(0);
+  const STARS_PER_PAGE = 4;
+  const starsTotal = STARS.length;
+  const prevStar = () => setStarIndex(i => (i - 1 + starsTotal) % starsTotal);
+  const nextStar = () => setStarIndex(i => (i + 1) % starsTotal);
+  const getVisibleStars = () => Array.from({ length: STARS_PER_PAGE }, (_, k) => STARS[(starIndex + k) % starsTotal]);
 
   const submitForm = async () => {
     if (!formData.name.trim() || !formData.contact.trim()) return;
@@ -279,38 +285,60 @@ export default function Index() {
             </p>
           </div>
 
-          <div className="overflow-x-auto pb-4 -mx-6 px-6" style={{ scrollbarWidth: "thin", scrollbarColor: "var(--neon-pink) transparent" }}>
-            <div className="flex gap-5" style={{ width: "max-content" }}>
-              {STARS.map((star, i) => (
-                <div key={i} className="glass star-card rounded-2xl overflow-hidden group cursor-pointer relative flex-shrink-0" style={{ width: "200px" }}>
-                  {star.tag && (
-                    <span className="absolute top-3 right-3 z-10 text-xs font-oswald font-bold px-2 py-1 rounded-md"
-                      style={{ background: star.tag === "NEW" ? "var(--neon-cyan)" : star.tag === "ТОП" ? "var(--neon-pink)" : "var(--neon-orange)", color: star.tag === "NEW" ? "#000" : "#fff" }}>
-                      {star.tag}
-                    </span>
-                  )}
-                  <div className="relative h-36 flex items-center justify-center overflow-hidden"
-                    style={{ background: `linear-gradient(135deg, hsl(${i * 25 + 280}, 70%, 15%), hsl(${i * 25 + 320}, 80%, 8%))` }}>
-                    {star.img ? <img src={star.img} alt={star.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" /> : <span className="text-5xl">{star.emoji}</span>}
-                    <div className="absolute inset-0 flex items-center justify-center" onClick={() => star.videoUrl && setActiveVideo(star.videoUrl)}>
-                      <div className={`w-12 h-12 rounded-full glass-strong flex items-center justify-center transition-all duration-300 scale-75 group-hover:scale-100 ${star.videoUrl ? "opacity-80 group-hover:opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
-                        <Icon name="Play" size={16} />
+          {/* Карусель со стрелками */}
+          <div className="relative">
+            {/* Стрелка влево */}
+            <button onClick={prevStar} className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-5 z-10 w-11 h-11 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110" style={{ background: "linear-gradient(135deg, var(--neon-pink), var(--neon-purple))", boxShadow: "0 0 20px rgba(255,0,128,0.4)" }}>
+              <Icon name="ChevronLeft" size={22} color="white" />
+            </button>
+
+            {/* Карточки */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 px-2">
+              {getVisibleStars().map((star, i) => {
+                const realIdx = (starIndex + i) % starsTotal;
+                return (
+                  <div key={`${starIndex}-${i}`} className="glass star-card rounded-2xl overflow-hidden group cursor-pointer relative" style={{ animation: "fadeIn 0.3s ease" }}>
+                    {star.tag && (
+                      <span className="absolute top-3 right-3 z-10 text-xs font-oswald font-bold px-2 py-1 rounded-md"
+                        style={{ background: star.tag === "NEW" ? "var(--neon-cyan)" : star.tag === "ТОП" ? "var(--neon-pink)" : "var(--neon-orange)", color: star.tag === "NEW" ? "#000" : "#fff" }}>
+                        {star.tag}
+                      </span>
+                    )}
+                    <div className="relative h-40 flex items-center justify-center overflow-hidden"
+                      style={{ background: `linear-gradient(135deg, hsl(${realIdx * 25 + 280}, 70%, 15%), hsl(${realIdx * 25 + 320}, 80%, 8%))` }}>
+                      {star.img ? <img src={star.img} alt={star.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" /> : <span className="text-5xl">{star.emoji}</span>}
+                      <div className="absolute inset-0 flex items-center justify-center" onClick={() => star.videoUrl && setActiveVideo(star.videoUrl)}>
+                        <div className={`w-12 h-12 rounded-full glass-strong flex items-center justify-center transition-all duration-300 scale-75 group-hover:scale-100 ${star.videoUrl ? "opacity-80 group-hover:opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
+                          <Icon name="Play" size={16} />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-oswald font-bold text-base text-white leading-tight">{star.name}</h3>
+                      <p className="text-white/50 text-xs font-golos mt-1">{star.category}</p>
+                      <div className="flex items-center justify-between mt-3">
+                        <span className="font-oswald font-bold text-sm" style={{ color: "var(--neon-cyan)" }}>1 500 ₽</span>
+                        <button onClick={() => scrollTo("contact")} className="btn-neon px-3 py-1.5 rounded-lg text-xs">
+                          <span>Заказать</span>
+                        </button>
                       </div>
                     </div>
                   </div>
-                  <div className="p-4">
-                    <h3 className="font-oswald font-bold text-base text-white leading-tight">{star.name}</h3>
-                    <p className="text-white/50 text-xs font-golos mt-1">{star.category}</p>
-                    <div className="flex items-center justify-between mt-3">
-                      <span className="font-oswald font-bold text-sm" style={{ color: "var(--neon-cyan)" }}>1 500 ₽</span>
-                      <button onClick={() => scrollTo("contact")} className="btn-neon px-3 py-1.5 rounded-lg text-xs">
-                        <span>Заказать</span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
+
+            {/* Стрелка вправо */}
+            <button onClick={nextStar} className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-5 z-10 w-11 h-11 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110" style={{ background: "linear-gradient(135deg, var(--neon-pink), var(--neon-purple))", boxShadow: "0 0 20px rgba(255,0,128,0.4)" }}>
+              <Icon name="ChevronRight" size={22} color="white" />
+            </button>
+          </div>
+
+          {/* Точки-индикаторы */}
+          <div className="flex justify-center gap-2 mt-6">
+            {Array.from({ length: starsTotal }).map((_, i) => (
+              <button key={i} onClick={() => setStarIndex(i)} className="rounded-full transition-all duration-300" style={{ width: i === starIndex ? "24px" : "8px", height: "8px", background: i === starIndex ? "var(--neon-pink)" : "rgba(255,255,255,0.25)" }} />
+            ))}
           </div>
 
           <div className="mt-8 rounded-2xl p-6 flex items-start gap-4 border" style={{ background: "rgba(255,255,255,0.04)", borderColor: "rgba(255,255,255,0.1)" }}>
