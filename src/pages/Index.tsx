@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Icon from "@/components/ui/icon";
 import ReviewsCarousel from "@/components/ReviewsCarousel";
 
@@ -76,6 +76,8 @@ export default function Index() {
   const [detailsOpen, setDetailsOpen] = useState(false);
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
   const [starIndex, setStarIndex] = useState(0);
+  const [isMuted, setIsMuted] = useState(true);
+  const promoVideoRef = useRef<HTMLVideoElement>(null);
   const STARS_PER_PAGE = 4;
   const starsTotal = STARS.length;
   const prevStar = () => setStarIndex(i => (i - 1 + starsTotal) % starsTotal);
@@ -221,8 +223,29 @@ export default function Index() {
 
           <div className="section-enter delay-200 relative">
             <div className="relative rounded-2xl overflow-hidden animate-float" style={{ animationDuration: "5s" }}>
-              <div style={{ aspectRatio: "16/9" }}>
-                <video src="https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/bucket/5debb0ee-f036-45d7-bf96-41a9808a926d.MP4" controls controlsList="nodownload" className="w-full h-full rounded-2xl" style={{ background: "#000" }} />
+              <div style={{ aspectRatio: "16/9" }} className="relative">
+                <video
+                  ref={promoVideoRef}
+                  src="https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/bucket/5debb0ee-f036-45d7-bf96-41a9808a926d.MP4"
+                  autoPlay
+                  loop
+                  muted={isMuted}
+                  playsInline
+                  controlsList="nodownload"
+                  className="w-full h-full rounded-2xl"
+                  style={{ background: "#000" }}
+                />
+                <button
+                  onClick={() => {
+                    setIsMuted(m => !m);
+                    if (promoVideoRef.current) promoVideoRef.current.muted = isMuted ? false : true;
+                  }}
+                  className="absolute bottom-3 right-3 flex items-center gap-2 px-3 py-2 rounded-full text-sm font-golos font-medium text-white backdrop-blur-sm transition-all"
+                  style={{ background: "rgba(0,0,0,0.55)", border: "1px solid rgba(255,255,255,0.2)" }}
+                >
+                  <Icon name={isMuted ? "VolumeX" : "Volume2"} size={16} />
+                  {isMuted ? "Включить звук" : "Выключить звук"}
+                </button>
               </div>
             </div>
           </div>
