@@ -532,11 +532,7 @@ export default function Index() {
               <a href="https://max.ru/u/f9LHodD0cOLpHLsmUw9eW0o4JBX8hUGQVOSc9NPEFSF_o_-HKmNfQInkbxw" target="_blank" rel="noopener noreferrer"
                 className="flex items-center gap-3 rounded-2xl px-5 py-4 font-golos font-semibold text-white text-base transition-all hover:scale-105 hover:brightness-110 no-underline"
                 style={{ background: "linear-gradient(135deg, #4F6FE8 0%, #7C3AED 100%)" }}>
-                <div style={{ width: 28, height: 28, borderRadius: 8, background: "linear-gradient(135deg, #5B8DF6 0%, #7C3AED 100%)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
-                  </svg>
-                </div>
+                <img src="https://cdn.poehali.dev/files/60d730f6-2584-458a-814c-dcab1105cce2.jpg" width="28" height="28" style={{ borderRadius: 8, objectFit: "cover", flexShrink: 0 }} alt="MAX" />
                 MAX
               </a>
 
