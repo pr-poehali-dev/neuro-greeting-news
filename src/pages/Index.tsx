@@ -500,7 +500,7 @@ export default function Index() {
             <p className="text-white/50 font-golos">Ответим в течение 2 часов</p>
           </div>
 
-          <div className="max-w-lg mx-auto grid grid-cols-2 gap-4">
+          <div className="max-w-2xl mx-auto grid grid-cols-2 md:grid-cols-3 gap-4">
             {/* Telegram */}
             <a href="https://t.me/anastasiavideo1" target="_blank" rel="noopener noreferrer"
               className="flex items-center gap-3 rounded-2xl px-5 py-4 font-golos font-semibold text-white text-base transition-all hover:scale-105 hover:brightness-110 no-underline"
@@ -521,8 +521,16 @@ export default function Index() {
             <a href="https://www.avito.ru/brands/3aff4584f599bf9abe69698bbf483b84" target="_blank" rel="noopener noreferrer"
               className="flex items-center gap-3 rounded-2xl px-5 py-4 font-golos font-semibold text-base transition-all hover:scale-105 hover:brightness-110 no-underline"
               style={{ background: "#ffffff", color: "#1a1a1a" }}>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="7" cy="7" r="3" fill="#965EEB"/><circle cx="17" cy="7" r="3" fill="#04E061"/><circle cx="7" cy="17" r="3" fill="#FF4053"/><circle cx="17" cy="17" r="3" fill="#00AEFF"/></svg>
+              <img src="https://cdn.poehali.dev/files/4f25907e-654c-4f46-8644-64ce7d65e06f.png" width="24" height="24" style={{ objectFit: "contain" }} alt="Avito" />
               Avito
+            </a>
+
+            {/* MAX */}
+            <a href="https://max.ru/u/f9LHodD0cOLpHLsmUw9eW0o4JBX8hUGQVOSc9NPEFSF_o_-HKmNfQInkbxw" target="_blank" rel="noopener noreferrer"
+              className="flex items-center gap-3 rounded-2xl px-5 py-4 font-golos font-semibold text-white text-base transition-all hover:scale-105 hover:brightness-110 no-underline"
+              style={{ background: "linear-gradient(135deg, #3B5BDB 0%, #7C3AED 100%)" }}>
+              <img src="https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/bucket/96cb7b87-679b-4178-b944-743484aab023.jpg" width="24" height="24" style={{ objectFit: "contain", borderRadius: "4px" }} alt="MAX" />
+              MAX
             </a>
 
             {/* WhatsApp */}
