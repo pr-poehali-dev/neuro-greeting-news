@@ -500,13 +500,13 @@ export default function Index() {
             <p className="text-white/50 font-golos">Для заказа напишите нам в любой мессенджер:</p>
           </div>
 
-          <div className="max-w-2xl mx-auto flex flex-col gap-4">
-            <div className="grid grid-cols-3 gap-4">
+          <div className="max-w-lg mx-auto flex flex-col gap-4 w-full">
+            <div className="grid grid-cols-2 gap-4">
               {/* Telegram */}
               <a href="https://t.me/anastasiavideo1" target="_blank" rel="noopener noreferrer"
                 className="flex items-center gap-3 rounded-2xl px-5 py-4 font-golos font-semibold text-white text-base transition-all hover:scale-105 hover:brightness-110 no-underline"
                 style={{ background: "#229ED9" }}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L8.32 14.617l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.828.942z"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="white" style={{ flexShrink: 0 }}><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L8.32 14.617l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.828.942z"/></svg>
                 Telegram
               </a>
 
@@ -514,20 +514,18 @@ export default function Index() {
               <a href="https://vk.ru/club238057825" target="_blank" rel="noopener noreferrer"
                 className="flex items-center gap-3 rounded-2xl px-5 py-4 font-golos font-semibold text-white text-base transition-all hover:scale-105 hover:brightness-110 no-underline"
                 style={{ background: "#0077FF" }}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M12.785 16.241s.288-.032.436-.194c.136-.148.132-.427.132-.427s-.02-1.304.585-1.498c.596-.19 1.364 1.26 2.177 1.817.614.422 1.08.33 1.08.33l2.17-.03s1.135-.07.597-1.09c-.044-.083-.314-.661-1.618-1.87-1.366-1.265-1.183-1.06.462-3.246.999-1.332 1.398-2.147 1.272-2.494-.12-.332-.855-.244-.855-.244l-2.44.015s-.181-.025-.315.055c-.132.078-.216.26-.216.26s-.387 1.03-.904 1.905c-1.088 1.85-1.524 1.948-1.702 1.832-.414-.267-.31-1.077-.31-1.652 0-1.797.272-2.548-.53-2.74-.267-.064-.463-.106-1.144-.113-.874-.009-1.614.003-2.032.208-.278.136-.493.44-.362.457.162.021.528.099.722.363.25.341.241 1.107.241 1.107s.144 2.115-.335 2.378c-.329.18-.78-.187-1.748-1.86-.497-.858-.873-1.808-.873-1.808s-.072-.176-.202-.271c-.156-.114-.376-.15-.376-.15l-2.317.015s-.348.01-.475.161C4.02 8.422 4.108 8.74 4.108 8.74s1.81 4.237 3.861 6.37c1.88 1.956 4.017 1.83 4.017 1.83h.799z"/></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="white" style={{ flexShrink: 0 }}><path d="M12.785 16.241s.288-.032.436-.194c.136-.148.132-.427.132-.427s-.02-1.304.585-1.498c.596-.19 1.364 1.26 2.177 1.817.614.422 1.08.33 1.08.33l2.17-.03s1.135-.07.597-1.09c-.044-.083-.314-.661-1.618-1.87-1.366-1.265-1.183-1.06.462-3.246.999-1.332 1.398-2.147 1.272-2.494-.12-.332-.855-.244-.855-.244l-2.44.015s-.181-.025-.315.055c-.132.078-.216.26-.216.26s-.387 1.03-.904 1.905c-1.088 1.85-1.524 1.948-1.702 1.832-.414-.267-.31-1.077-.31-1.652 0-1.797.272-2.548-.53-2.74-.267-.064-.463-.106-1.144-.113-.874-.009-1.614.003-2.032.208-.278.136-.493.44-.362.457.162.021.528.099.722.363.25.341.241 1.107.241 1.107s.144 2.115-.335 2.378c-.329.18-.78-.187-1.748-1.86-.497-.858-.873-1.808-.873-1.808s-.072-.176-.202-.271c-.156-.114-.376-.15-.376-.15l-2.317.015s-.348.01-.475.161C4.02 8.422 4.108 8.74 4.108 8.74s1.81 4.237 3.861 6.37c1.88 1.956 4.017 1.83 4.017 1.83h.799z"/></svg>
                 ВКонтакте
               </a>
 
-              {/* Avito */}
-              <a href="https://www.avito.ru/brands/3aff4584f599bf9abe69698bbf483b84" target="_blank" rel="noopener noreferrer"
-                className="flex items-center gap-3 rounded-2xl px-5 py-4 font-golos font-semibold text-base transition-all hover:scale-105 hover:brightness-110 no-underline"
-                style={{ background: "#ffffff", color: "#1a1a1a" }}>
-                <img src="https://cdn.poehali.dev/files/4f25907e-654c-4f46-8644-64ce7d65e06f.png" width="24" height="24" style={{ objectFit: "contain" }} alt="Avito" />
-                Avito
+              {/* WhatsApp */}
+              <a href="https://wa.me/79001224690" target="_blank" rel="noopener noreferrer"
+                className="flex items-center gap-3 rounded-2xl px-5 py-4 font-golos font-semibold text-white text-base transition-all hover:scale-105 hover:brightness-110 no-underline"
+                style={{ background: "#25D366" }}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="white" style={{ flexShrink: 0 }}><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                WhatsApp
               </a>
-            </div>
 
-            <div className="grid grid-cols-2 gap-4 max-w-lg mx-auto w-full">
               {/* MAX */}
               <a href="https://max.ru/u/f9LHodD0cOLpHLsmUw9eW0o4JBX8hUGQVOSc9NPEFSF_o_-HKmNfQInkbxw" target="_blank" rel="noopener noreferrer"
                 className="flex items-center gap-3 rounded-2xl px-5 py-4 font-golos font-semibold text-white text-base transition-all hover:scale-105 hover:brightness-110 no-underline"
@@ -535,15 +533,15 @@ export default function Index() {
                 <img src="https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/bucket/3c78f2ca-b21b-4556-bd6d-30bf2a5531ef.png" width="28" height="28" style={{ borderRadius: 6, objectFit: "cover", flexShrink: 0 }} alt="MAX" />
                 MAX
               </a>
-
-              {/* WhatsApp */}
-              <a href="https://wa.me/79001224690" target="_blank" rel="noopener noreferrer"
-                className="flex items-center gap-3 rounded-2xl px-5 py-4 font-golos font-semibold text-white text-base transition-all hover:scale-105 hover:brightness-110 no-underline"
-                style={{ background: "#25D366" }}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                WhatsApp
-              </a>
             </div>
+
+            {/* Avito — на всю ширину */}
+            <a href="https://www.avito.ru/brands/3aff4584f599bf9abe69698bbf483b84" target="_blank" rel="noopener noreferrer"
+              className="flex items-center justify-center gap-3 rounded-2xl px-5 py-4 font-golos font-semibold text-base transition-all hover:scale-105 hover:brightness-110 no-underline"
+              style={{ background: "#ffffff", color: "#1a1a1a" }}>
+              <img src="https://cdn.poehali.dev/files/4f25907e-654c-4f46-8644-64ce7d65e06f.png" width="24" height="24" style={{ objectFit: "contain" }} alt="Avito" />
+              Avito
+            </a>
           </div>
         </div>
       </section>
