@@ -532,7 +532,7 @@ export default function Index() {
               <a href="https://max.ru/u/f9LHodD0cOLpHLsmUw9eW0o4JBX8hUGQVOSc9NPEFSF_o_-HKmNfQInkbxw" target="_blank" rel="noopener noreferrer"
                 className="flex items-center gap-3 rounded-2xl px-5 py-4 font-golos font-semibold text-white text-base transition-all hover:scale-105 hover:brightness-110 no-underline"
                 style={{ background: "linear-gradient(135deg, #4F6FE8 0%, #7C3AED 100%)" }}>
-                <img src="https://cdn.poehali.dev/files/60d730f6-2584-458a-814c-dcab1105cce2.jpg" width="28" height="28" style={{ borderRadius: 8, objectFit: "cover", flexShrink: 0 }} alt="MAX" />
+                <img src="https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/bucket/3c78f2ca-b21b-4556-bd6d-30bf2a5531ef.png" width="28" height="28" style={{ borderRadius: 6, objectFit: "cover", flexShrink: 0 }} alt="MAX" />
                 MAX
               </a>
 
