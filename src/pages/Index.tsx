@@ -497,7 +497,7 @@ export default function Index() {
             <h2 className="font-oswald text-5xl lg:text-6xl font-bold text-white mb-4">
               НАПИШИТЕ <span className="gradient-text-warm">НАМ</span>
             </h2>
-            <p className="text-white/50 font-golos">Ответим в течение 2 часов</p>
+            <p className="text-white/50 font-golos">Для заказа напишите нам в любой мессенджер:</p>
           </div>
 
           <div className="max-w-2xl mx-auto flex flex-col gap-4">
