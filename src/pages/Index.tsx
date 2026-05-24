@@ -37,6 +37,7 @@ const STARS: { name: string; category: string; emoji: string; tag: string; video
 
 const GALLERY_ITEMS: { title: string; star: string; views: string; emoji: string; img?: string; price: string; videoUrl?: string }[] = [
   { title: "Поздравление от Первого канала", star: "Первый канал", views: "12 тыс.", emoji: "🎂", img: "https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/bucket/df67c171-7f7f-4ae4-a385-6a9da9285217.jpg", price: "3 000 ₽", videoUrl: "https://vkvideo.ru/video_ext.php?oid=-238057825&id=456239017&hd=2&autoplay=0&js_api=1&no_allow_player_extensions=1" },
+  { title: "Поздравление от Первого канала и звезд российской эстрады", star: "Первый канал + звёзды", views: "10 тыс.", emoji: "🎤", img: "https://cdn.poehali.dev/files/b4e1443d-9287-4838-a8d3-6a6860fc6641.jpg", price: "3 000 ₽", videoUrl: "https://vkvideo.ru/video_ext.php?oid=-238057825&id=456239042&hd=2&autoplay=0&js_api=1&no_allow_player_extensions=1" },
   { title: "Поздравление от канала «Россия 1»", star: "Россия 1", views: "8 тыс.", emoji: "🎉", img: "https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/bucket/547b92a4-0d8b-4c83-851a-cc66d5d72037.jpg", price: "3 000 ₽", videoUrl: "https://vkvideo.ru/video_ext.php?oid=-238057825&id=456239019&hd=2&autoplay=0&js_api=1&no_allow_player_extensions=1" },
   { title: "Ведущая + Путин", star: "Персональное поздравление", views: "21 тыс.", emoji: "💍", img: "https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c47e03f2914a/bucket/53d33841-87d9-4cd1-ae5b-be9cb99a1000.jpg", price: "2 000 ₽", videoUrl: "https://vkvideo.ru/video_ext.php?oid=-238057825&id=456239018&hd=2&autoplay=0&js_api=1&no_allow_player_extensions=1" },
   { title: "Юбилей 50 лет", star: "Нагиев", views: "6 тыс.", emoji: "🥂", price: "1 500 ₽" },
@@ -265,8 +266,8 @@ export default function Index() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {GALLERY_ITEMS.slice(0, 3).map((item, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {GALLERY_ITEMS.slice(0, 4).map((item, i) => (
               <div key={i} className="glass star-card rounded-2xl overflow-hidden group cursor-pointer" style={{ width: "100%", maxWidth: "380px", margin: "0 auto" }}>
                 <div className="relative overflow-hidden" style={{ height: "240px", background: `linear-gradient(135deg, hsl(${i * 40 + 200}, 70%, 10%), hsl(${i * 40 + 240}, 80%, 6%))` }}>
                   {item.img ? (
