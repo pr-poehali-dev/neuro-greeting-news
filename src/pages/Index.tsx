@@ -9,6 +9,7 @@ const GALLERY_IMG = "https://cdn.poehali.dev/projects/90f85c73-4e8a-422c-8e61-c4
 const NAV_ITEMS = [
   { id: "home", label: "Главная" },
   { id: "gallery", label: "Галерея" },
+  { id: "gender-party", label: "Гендер пати" },
   { id: "stars", label: "Звёзды" },
   { id: "how", label: "Как это работает" },
   { id: "reviews", label: "Отзывы" },
@@ -286,6 +287,76 @@ export default function Index() {
                     <h3 className="font-oswald font-semibold text-lg text-white">{item.title}</h3>
                     <span className="font-oswald font-bold text-lg ml-3 shrink-0" style={{ color: "var(--neon-cyan)" }}>{item.price}</span>
                   </div>
+                  <button onClick={() => scrollTo("contact")} className="btn-neon w-full py-2 rounded-lg text-sm">
+                    <span>Заказать</span>
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* GENDER PARTY */}
+      <section id="gender-party" className="py-24 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="text-sm font-golos uppercase tracking-widest mb-4 block" style={{ color: "var(--neon-pink)" }}>Специальный формат</span>
+            <h2 className="font-oswald text-5xl lg:text-6xl font-bold text-white mb-4">
+              ГОЛОС МАЛЫША ДЛЯ <span className="gradient-text">ГЕНДЕР ПАТИ</span>
+            </h2>
+            <p className="text-white/50 max-w-xl mx-auto font-golos">
+              Малыш сам объявит пол — трогательный сюрприз, который запомнится навсегда
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                title: "Готовая запись",
+                description: "Универсальное поздравление без имён — готово сразу после оплаты",
+                price: "750 ₽",
+                tag: "ЭКОНОМ",
+                tagColor: "var(--neon-cyan)",
+                features: ["Готовая запись", "Без имён родителей", "Мгновенная выдача"],
+              },
+              {
+                title: "Оптимальный",
+                description: "Малыш назовёт имена родителей и скажет 1–2 фразы по вашему желанию",
+                price: "1 500 ₽",
+                tag: "ХИТ",
+                tagColor: "var(--neon-pink)",
+                features: ["Имена родителей", "1–2 индивидуальные фразы", "Срок: 1–2 дня"],
+              },
+              {
+                title: "Индивидуальный",
+                description: "Полностью персональный текст — малыш обратится к маме, папе, бабушкам и всем близким",
+                price: "2 000 ₽",
+                tag: "VIP",
+                tagColor: "var(--neon-orange)",
+                features: ["Индивидуальный текст", "Обращение ко всем близким", "Срок: 1–2 дня"],
+              },
+            ].map((item, i) => (
+              <div key={i} className="glass star-card rounded-2xl overflow-hidden group cursor-pointer">
+                <div className="relative overflow-hidden flex items-center justify-center" style={{ height: "240px", background: `linear-gradient(135deg, hsl(${300 + i * 30}, 70%, 10%), hsl(${330 + i * 30}, 80%, 6%))` }}>
+                  <span className="text-8xl opacity-60">👶</span>
+                  <span className="absolute top-3 right-3 z-10 text-xs font-oswald font-bold px-2 py-1 rounded-md" style={{ background: item.tagColor, color: item.tag === "ХИТ" ? "#fff" : "#000" }}>
+                    {item.tag}
+                  </span>
+                </div>
+                <div className="p-5">
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="font-oswald font-semibold text-lg text-white">{item.title}</h3>
+                    <span className="font-oswald font-bold text-lg ml-3 shrink-0" style={{ color: "var(--neon-cyan)" }}>{item.price}</span>
+                  </div>
+                  <p className="text-white/50 text-sm font-golos mb-3">{item.description}</p>
+                  <ul className="mb-4 space-y-1">
+                    {item.features.map((f, fi) => (
+                      <li key={fi} className="text-white/70 text-xs font-golos flex items-center gap-2">
+                        <span style={{ color: "var(--neon-cyan)" }}>✓</span> {f}
+                      </li>
+                    ))}
+                  </ul>
                   <button onClick={() => scrollTo("contact")} className="btn-neon w-full py-2 rounded-lg text-sm">
                     <span>Заказать</span>
                   </button>
